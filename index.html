@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="meta.title">Miguel Caetano · Software Developer</title>
+  <meta name="description" data-i18n-attr="content:meta.desc" content="Portfolio of Miguel Caetano, a software developer building websites, desktop apps and mobile apps. Creator of ParkLog." />
+
+  <link rel="canonical" href="https://caetano14.github.io/" />
+
+  <!-- Social share preview. Needs absolute URLs. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://caetano14.github.io/" />
+  <meta property="og:title" content="Miguel Caetano · Software Developer" />
+  <meta property="og:description" content="Web, desktop and mobile · Creator of ParkLog, an AI-powered car collection app." />
+  <meta property="og:image" content="https://caetano14.github.io/assets/og-home.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Miguel Caetano, software developer, next to ParkLog app screens" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta name="theme-color" content="#0A0A0A" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============ NAVIGATION ============ -->
+  <header class="nav" id="nav">
+    <a href="#top" class="nav__logo">MC<span>.</span></a>
+    <div class="nav__right">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+      </div>
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" data-i18n-attr="aria-label:nav.menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+    <nav class="nav__links" id="navLinks">
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#projects" data-i18n="nav.projects">Projects</a>
+      <a href="#stack" data-i18n="nav.stack">Stack</a>
+      <a href="#contact" class="nav__cta" data-i18n="nav.contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero__glow"></div>
+      <div class="container hero__inner">
+        <p class="eyebrow"><span class="dot"></span> <span data-i18n="hero.available">Open to opportunities</span></p>
+        <h1 class="hero__title">Miguel<br />Caetano</h1>
+        <p class="hero__subtitle" data-i18n="hero.subtitle">
+          Software developer. I build <strong>websites</strong>, <strong>desktop apps</strong> and
+          <strong>mobile apps</strong>, from the first screen to the AI integration.
+        </p>
+        <div class="hero__actions">
+          <a href="#projects" class="btn btn--primary" data-i18n="hero.cta">See projects</a>
+          <a href="assets/cv-miguel-caetano-en.pdf" class="btn btn--ghost" download data-i18n="hero.cv" data-i18n-attr="href:cv.file">Download CV (EN)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="container about">
+        <figure class="code-card reveal" aria-label="About me, written as code" data-i18n-attr="aria-label:about.codeLabel">
+          <div class="code-card__bar" aria-hidden="true">
+            <i></i><i></i><i></i>
+            <span>miguel.js</span>
+          </div>
+<pre class="code-card__body"><code><span class="c-com" data-i18n="about.codeComment">// about me</span>
+<span class="c-key">const</span> <span class="c-var">miguel</span> = {
+  <span class="c-prop">role</span>: <span class="c-str">"Software Developer"</span>,
+  <span class="c-prop">builds</span>: [<span class="c-str">"web"</span>, <span class="c-str">"desktop"</span>, <span class="c-str">"mobile"</span>],
+  <span class="c-prop">location</span>: <span class="c-str">"Viseu, Portugal"</span>,
+  <span class="c-prop">currently</span>: <span class="c-str" data-i18n="about.codeStatus">"open to opportunities"</span>,
+  <span class="c-prop">stack</span>: [
+    <span class="c-str">"JavaScript"</span>, <span class="c-str">"Python"</span>,
+    <span class="c-str">"Java"</span>, <span class="c-str">"C#"</span>, <span class="c-str">"React Native"</span>,
+    <span class="c-str">"React"</span>, <span class="c-str">"Node.js"</span>,
+    <span class="c-str">"React Native"</span>, <span class="c-str">"Flutter"</span>,
+    <span class="c-str">"PostgreSQL"</span>, <span class="c-str">"MongoDB"</span>,
+  ],
+};
+
+<span class="c-key">export default</span> <span class="c-var">miguel</span>;<span class="code-card__caret" aria-hidden="true"></span></code></pre>
+        </figure>
+        <div class="about__text reveal">
+          <p class="section__label" data-i18n="about.label">01 · About me</p>
+          <h2 class="section__title" data-i18n="about.title">I like turning ideas into apps people actually want to use.</h2>
+          <p data-i18n="about.p1">
+            I'm a software developer who works across the web, desktop and mobile. I like taking an idea all
+            the way: architecture, design, performance and the details that make the difference.
+          </p>
+          <p data-i18n="about.p2">
+            My main project is <strong>ParkLog</strong>, an Android and iOS app I built from scratch, with
+            AI car recognition, a serverless backend and 173 automated tests. During my internship at an
+            agricultural automation company, I took a mobile app for smart growing systems from unstable
+            prototype to Google Play approval. I'm currently looking for an opportunity to grow in a development team.
+          </p>
+          <div class="about__facts">
+            <div><span class="fact__num">173</span><span class="fact__label" data-i18n="about.f1">Unit tests<br />in ParkLog</span></div>
+            <div><span class="fact__num">2</span><span class="fact__label" data-i18n="about.f2">Platforms:<br />Android and iOS</span></div>
+            <div><span class="fact__num">PT/EN</span><span class="fact__label" data-i18n="about.f3">Bilingual<br />apps</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="section" id="projects">
+      <div class="container">
+        <p class="section__label reveal" data-i18n="projects.label">02 · Projects</p>
+        <h2 class="section__title reveal" data-i18n="projects.title">Featured</h2>
+
+        <article class="project reveal">
+          <div class="project__visual">
+            <a href="parklog/" class="phone" aria-label="See the ParkLog case study" data-i18n-attr="aria-label:projects.phoneLabel">
+              <div class="phone__screen phone__screen--img">
+                <img src="assets/parklog/home.webp" srcset="assets/parklog/home-sm.webp 430w, assets/parklog/home.webp 645w" sizes="(max-width: 720px) 210px, 250px" width="645" height="1398" alt="ParkLog home screen with recently added cars" data-i18n-attr="alt:projects.phoneAlt" />
+              </div>
+            </a>
+          </div>
+
+          <div class="project__body">
+            <div class="project__head">
+              <h3 class="project__name">ParkLog</h3>
+              <span class="tag">Android + iOS · React Native</span>
+            </div>
+            <p class="project__desc" data-i18n="pk.desc">
+              A Pokédex for cars. Take a photo of a car on the street and the app suggests the brand, model
+              and year with AI, scores its rarity, pins where you saw it and unlocks achievements. Built in
+              about a week; works offline, no account needed, and your data stays on your phone.
+            </p>
+
+            <ul class="features">
+              <li data-i18n="pk.f1"><b>AI without exposing the key:</b> the model is called through a Cloudflare Worker and the app validates the response again</li>
+              <li data-i18n="pk.f2"><b>AI suggests, it doesn't decide:</b> recognition is opt-in, has confidence levels and can be undone</li>
+              <li data-i18n="pk.f3"><b>173 unit tests</b> on the logic (rarity, validation, backups, achievements), run on GitHub Actions</li>
+              <li data-i18n="pk.f4"><b>Safe data:</b> .zip backups with photos, treated as untrusted input on import</li>
+              <li data-i18n="pk.f5"><b>116 brands</b>, rarity engine, map, <b>50 achievements</b> and a PT/EN interface</li>
+            </ul>
+
+            <div class="chips">
+              <span>React Native 0.81</span><span>Expo SDK 54</span><span>React Navigation 7</span><span>Context API</span>
+              <span>FlashList</span><span>Cloudflare Workers</span><span>Anthropic API</span>
+              <span>Jest</span><span>GitHub Actions</span>
+            </div>
+
+            <div class="project__links">
+              <a href="parklog/" class="btn btn--primary btn--sm" data-i18n="pk.case">See case study →</a>
+              <a href="parklog/#demo" class="btn btn--ghost btn--sm">▶ Demo</a>
+              <a href="https://github.com/caetano14/parklog" target="_blank" rel="noopener" class="btn btn--ghost btn--sm" data-i18n="pk.code">Code ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Second project: internship -->
+        <article class="project reveal">
+          <div class="project__visual">
+            <a href="internship/" class="phone" aria-label="See the internship case study" data-i18n-attr="aria-label:gl.card.phoneLabel">
+              <div class="phone__screen phone__screen--img">
+                <img src="assets/internship/dashboard.webp" srcset="assets/internship/dashboard-sm.webp 430w, assets/internship/dashboard.webp 645w" sizes="(max-width: 720px) 210px, 250px" width="645" height="1398" alt="App dashboard with modules, areas, schedules and alarms" data-i18n-attr="alt:gl.alt.dashboard" loading="lazy" />
+              </div>
+            </a>
+          </div>
+
+          <div class="project__body">
+            <div class="project__head">
+              <h3 class="project__name" data-i18n="gl.card.name">Smart Growing Monitor</h3>
+              <span class="tag" data-i18n="gl.card.tag">Internship · Flutter</span>
+            </div>
+            <p class="project__desc" data-i18n="gl.card.desc">
+              A mobile app for monitoring smart growing systems, built during my internship at an agricultural
+              automation company. I took over an unstable Flutter prototype, fixed it, added new features and got
+              it through Google Play review.
+            </p>
+
+            <ul class="features">
+              <li data-i18n="gl.card.f1"><b>Talks to real hardware</b> over TCP and UDP on the local network to show live sensor data</li>
+              <li data-i18n="gl.card.f2"><b>Sensor values now instant</b>, down from 5–10 seconds, with fixed charts and clear error handling</li>
+              <li data-i18n="gl.card.f3"><b>Google sign-in, device unlock</b>, light/dark themes and PT/EN/ES translations</li>
+              <li data-i18n="gl.card.f4"><b>Beta tested and approved</b> in Google Play's review</li>
+            </ul>
+
+            <div class="chips">
+              <span>Flutter</span><span>Dart</span><span>Provider</span><span>SQLite</span>
+              <span>TCP/UDP</span><span>Firebase</span><span>Google Play</span>
+            </div>
+
+            <div class="project__links">
+              <a href="internship/" class="btn btn--primary btn--sm" data-i18n="pk.case">See case study →</a>
+              <a href="internship/#redesign" class="btn btn--ghost btn--sm" data-i18n="gl.cta.ba">Before vs after</a>
+            </div>
+          </div>
+        </article>
+
+        <p class="more reveal" data-i18n="projects.more">More of my work on <a href="https://github.com/caetano14" target="_blank" rel="noopener">GitHub</a>.</p>
+      </div>
+    </section>
+
+    <!-- ============ STACK ============ -->
+    <section class="section" id="stack">
+      <div class="container">
+        <p class="section__label reveal" data-i18n="stack.label">03 · Skills</p>
+        <h2 class="section__title reveal">Stack</h2>
+
+        <div class="stack">
+          <div class="stack__group reveal">
+            <h3><i class="bar bar--exotic"></i><span data-i18n="stack.languages">Languages</span></h3>
+            <ul><li>JavaScript</li><li>Python</li><li>Java</li><li>C#</li><li>C · C++</li><li>SQL</li></ul>
+          </div>
+          <div class="stack__group reveal">
+            <h3><i class="bar bar--rare"></i>Web</h3>
+            <ul><li>React</li><li>Node.js</li><li>HTML &amp; CSS</li><li>Bootstrap</li><li>REST APIs</li></ul>
+          </div>
+          <div class="stack__group reveal">
+            <h3><i class="bar bar--common"></i>Mobile</h3>
+            <ul><li>React Native</li><li>Expo</li><li>Flutter</li><li data-i18n="stack.platforms">iOS · Xcode and Android</li></ul>
+          </div>
+          <div class="stack__group reveal">
+            <h3><i class="bar bar--white"></i><span data-i18n="stack.data">Data &amp; tools</span></h3>
+            <ul><li>PostgreSQL</li><li>MongoDB</li><li>Cloudflare Workers</li><li>Linux</li><li>Arduino</li><li>Git · GitHub Actions</li><li data-i18n="stack.jest">Jest · unit tests</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact" id="contact">
+      <div class="container contact__inner reveal">
+        <p class="section__label" data-i18n="contact.label">04 · Contact</p>
+        <h2 class="contact__title" data-i18n="contact.title">Let's talk?</h2>
+        <p class="contact__text" data-i18n="contact.text">I'm open to opportunities, projects and conversations about software development.</p>
+        <a href="mailto:miguelscaetano.dev@gmail.com" class="contact__email">miguelscaetano.dev@gmail.com</a>
+        <div class="contact__links">
+          <a href="https://github.com/caetano14" target="_blank" rel="noopener">GitHub ↗</a>
+                    <a href="assets/cv-miguel-caetano-en.pdf" download data-i18n="contact.cv" data-i18n-attr="href:cv.file">CV in English
+                      (PDF) ↓</a>
+                    <a href="assets/cv-miguel-caetano-pt.pdf" download data-i18n="contact.cvOther" data-i18n-attr="href:cv.otherFile">CV in
+                      Portuguese (PDF) ↓</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Miguel Caetano · <span data-i18n="footer.made">Handmade, no templates.</span></p>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

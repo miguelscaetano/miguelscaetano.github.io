@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="gl.meta.title">Internship case study · Smart growing monitor app · Miguel Caetano</title>
+  <meta name="description" data-i18n-attr="content:gl.meta.desc" content="Internship case study: a Flutter app for monitoring smart growing systems in real time, which I stabilized, extended and prepared for Google Play." />
+  <link rel="canonical" href="https://caetano14.github.io/internship/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://caetano14.github.io/internship/" />
+  <meta property="og:title" content="Internship case study · Smart growing monitor app" />
+  <meta property="og:description" content="A Flutter app that talks to real hardware, taken from unstable prototype to Google Play approval." />
+  <meta property="og:image" content="https://caetano14.github.io/assets/og-internship.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Screens of a mobile app for monitoring smart growing systems" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <meta name="theme-color" content="#0A0A0A" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../case-study.css" />
+</head>
+<body>
+
+  <header class="nav" id="nav">
+    <a href="../" class="nav__logo">MC<span>.</span></a>
+    <div class="nav__right">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+      </div>
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" data-i18n-attr="aria-label:nav.menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+    <nav class="nav__links" id="navLinks">
+      <a href="../#about" data-i18n="nav.about">About</a>
+      <a href="../#projects" data-i18n="nav.projects">Projects</a>
+      <a href="../#stack" data-i18n="nav.stack">Stack</a>
+      <a href="../#contact" class="nav__cta" data-i18n="nav.contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="cs-hero">
+      <div class="hero__glow"></div>
+      <div class="container cs-hero__inner">
+        <div class="cs-hero__text">
+          <a href="../#projects" class="back" data-i18n="cs.back">← Back to projects</a>
+          <p class="section__label" data-i18n="gl.label">Internship case study</p>
+          <h1 class="cs-title" data-i18n="gl.h1">Internship</h1>
+          <p class="cs-lead" data-i18n="gl.lead">
+            <strong>A mobile app for smart growing systems.</strong> During my internship at an agricultural
+            automation company, I took over an unstable Flutter prototype that monitors the company's hardware
+            and turned it into a reliable app that passed Google Play review.
+          </p>
+          <div class="badges">
+            <span>Flutter · Dart</span><span>Android</span><span data-i18n="gl.badge.period">Feb – Aug 2025</span><span data-i18n="gl.badge.review">Passed Google Play review</span>
+          </div>
+          <div class="hero__actions">
+            <a href="#what-i-did" class="btn btn--primary" data-i18n="gl.cta.work">What I did</a>
+            <a href="#redesign" class="btn btn--ghost" data-i18n="gl.cta.ba">Before vs after</a>
+          </div>
+          <p class="note-private" data-i18n="gl.private">Company and product names are left out because the app is proprietary. The source code is private and talks directly to the company's hardware.</p>
+        </div>
+
+        <div class="cs-hero__visual">
+          <div class="phone phone--hero">
+            <div class="phone__screen">
+              <img src="../assets/internship/dashboard.webp" srcset="../assets/internship/dashboard-sm.webp 430w, ../assets/internship/dashboard.webp 645w" sizes="(max-width: 720px) 220px, 270px" width="645" height="1398" alt="App dashboard with modules, areas, schedules and alarms" data-i18n-attr="alt:gl.alt.dashboard" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ QUICK FACTS ============ -->
+    <section class="container facts reveal">
+      <div><span class="facts__k" data-i18n="gl.facts.roleK">Role</span><span class="facts__v" data-i18n="gl.facts.roleV">Mobile developer intern</span></div>
+      <div><span class="facts__k" data-i18n="gl.facts.companyK">Company</span><span class="facts__v" data-i18n="gl.facts.companyV">Agricultural automation</span></div>
+      <div><span class="facts__k" data-i18n="gl.facts.contextK">Context</span><span class="facts__v" data-i18n="gl.facts.contextV">Curricular internship, Computer Engineering degree</span></div>
+      <div><span class="facts__k">Stack</span><span class="facts__v">Flutter · Dart · TCP/UDP · Firebase</span></div>
+    </section>
+
+    <!-- ============ CONTEXT ============ -->
+    <section class="section">
+      <div class="container cs-split">
+        <div class="reveal">
+          <p class="section__label" data-i18n="gl.ctx.label">01 · Context</p>
+          <h2 class="section__title" data-i18n="gl.ctx.title">A smart growing system that only had a Windows app.</h2>
+        </div>
+        <div class="cs-prose reveal">
+          <p data-i18n="gl.ctx.p1">
+            The company builds a modular system for automating urban and indoor growing. A central
+            <strong>controller</strong> runs the whole setup and manages modules for power, lights and climate,
+            soil sensors, and water (pH, EC and level). Until then, it could only be monitored from a desktop
+            program on Windows.
+          </p>
+          <p data-i18n="gl.ctx.p2">
+            A student had started a mobile app the year before, but it was incomplete, unstable and unpublished:
+            outdated dependencies, frequent crashes, broken features and no clear feedback when something went
+            wrong. My job was to take it over, fix it, finish it and get it ready for the Play Store.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GALLERY ============ -->
+    <section class="section section--tight">
+      <div class="container">
+        <p class="section__label reveal" data-i18n="gl.gal.label">02 · Screens</p>
+        <h2 class="section__title reveal" data-i18n="gl.gal.title">The app</h2>
+      </div>
+      <div class="gallery reveal">
+        <figure>
+          <div class="gallery__phone"><img src="../assets/internship/dashboard.webp" srcset="../assets/internship/dashboard-sm.webp 430w, ../assets/internship/dashboard.webp 645w" sizes="(max-width: 720px) 184px, 214px" width="645" height="1398" alt="Dashboard" data-i18n-attr="alt:gl.alt.dashboard" loading="lazy" /></div>
+          <figcaption data-i18n="gl.gal.dashboard"><b>Dashboard</b>Modules, areas, schedules and alarms at a glance</figcaption>
+        </figure>
+        <figure>
+          <div class="gallery__phone"><img src="../assets/internship/areas.webp" srcset="../assets/internship/areas-sm.webp 430w, ../assets/internship/areas.webp 645w" sizes="(max-width: 720px) 184px, 214px" width="645" height="1398" alt="Active schedules and grow areas" data-i18n-attr="alt:gl.alt.areas" loading="lazy" /></div>
+          <figcaption data-i18n="gl.gal.areas"><b>Schedules and areas</b>Active schedules with progress, and each grow area</figcaption>
+        </figure>
+        <figure>
+          <div class="gallery__phone"><img src="../assets/internship/module.webp" srcset="../assets/internship/module-sm.webp 430w, ../assets/internship/module.webp 499w" sizes="(max-width: 720px) 184px, 214px" width="499" height="1079" alt="Module sensors" data-i18n-attr="alt:gl.alt.module" loading="lazy" /></div>
+          <figcaption data-i18n="gl.gal.module"><b>Module</b>Live sensor readings: CO₂, humidity, temperature</figcaption>
+        </figure>
+        <figure>
+          <div class="gallery__phone"><img src="../assets/internship/chart.webp" srcset="../assets/internship/chart-sm.webp 430w, ../assets/internship/chart.webp 498w" sizes="(max-width: 720px) 184px, 214px" width="498" height="1079" alt="Output chart" data-i18n-attr="alt:gl.alt.chart" loading="lazy" /></div>
+          <figcaption data-i18n="gl.gal.chart"><b>Charts</b>Real-time and history, with ON/OFF for boolean outputs</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ BEFORE / AFTER ============ -->
+    <section class="section" id="redesign">
+      <div class="container">
+        <p class="section__label reveal" data-i18n="gl.ba.label">03 · Redesign</p>
+        <h2 class="section__title reveal" data-i18n="gl.ba.title">Dashboard: before and after</h2>
+        <div class="compare reveal">
+          <figure>
+            <div class="gallery__phone"><img src="../assets/internship/before.webp" srcset="../assets/internship/before-sm.webp 430w, ../assets/internship/before.webp 645w" sizes="(max-width: 720px) 44vw, 250px" width="645" height="1398" alt="Dashboard before the internship" data-i18n-attr="alt:gl.alt.before" loading="lazy" /></div>
+            <figcaption data-i18n="gl.ba.before">Before</figcaption>
+          </figure>
+          <figure>
+            <div class="gallery__phone"><img src="../assets/internship/after.webp" srcset="../assets/internship/after-sm.webp 430w, ../assets/internship/after.webp 498w" sizes="(max-width: 720px) 44vw, 250px" width="498" height="1079" alt="Dashboard after the internship" data-i18n-attr="alt:gl.alt.after" loading="lazy" /></div>
+            <figcaption data-i18n="gl.ba.after">After</figcaption>
+          </figure>
+        </div>
+        <p class="compare__text reveal" data-i18n="gl.ba.text">A summary at the top, consistent icons and colors in both themes, aligned cards and every section translated into the chosen language.</p>
+      </div>
+    </section>
+
+    <!-- ============ WHAT I DID ============ -->
+    <section class="section" id="what-i-did">
+      <div class="container">
+        <p class="section__label reveal" data-i18n="gl.did.label">04 · What I did</p>
+        <h2 class="section__title reveal" data-i18n="gl.did.title">From prototype to product</h2>
+        <div class="feat-grid">
+          <article class="feat reveal"><i class="bar bar--exotic"></i><h3 data-i18n="gl.did.1t">Finding the controller</h3><p data-i18n="gl.did.1p">Reworked the automatic network search, added IP validation and brought back search by serial number and hostname, which had stopped working, by mapping them to saved IP addresses.</p></article>
+          <article class="feat reveal"><i class="bar bar--rare"></i><h3 data-i18n="gl.did.2t">Login</h3><p data-i18n="gl.did.2p">Fixed Google sign-in by reconfiguring Firebase and the auth flow, and added unlock with the phone's own method (fingerprint, face, PIN), shown only when the device has one.</p></article>
+          <article class="feat reveal"><i class="bar bar--common"></i><h3 data-i18n="gl.did.3t">Live data and charts</h3><p data-i18n="gl.did.3p">Sensor values went from 5–10 seconds to showing instantly. Fixed charts that showed wrong units and scales, and displayed boolean outputs as ON/OFF instead of 1/0.</p></article>
+          <article class="feat reveal"><i class="bar bar--exotic"></i><h3 data-i18n="gl.did.4t">Cameras</h3><p data-i18n="gl.did.4p">RTSP and HTTP camera streams with fullscreen, a status light and clear error messages instead of blank screens.</p></article>
+          <article class="feat reveal"><i class="bar bar--rare"></i><h3 data-i18n="gl.did.5t">Themes and languages</h3><p data-i18n="gl.did.5p">Light and dark mode saved on the device, a splash screen that follows the theme, and complete Portuguese, English and Spanish translations, notifications included.</p></article>
+          <article class="feat reveal"><i class="bar bar--common"></i><h3 data-i18n="gl.did.6t">Stability</h3><p data-i18n="gl.did.6p">Fixed crashes (connecting to an IP with no controller, switching controllers after logout, no internet), updated every outdated dependency, cleared the previous developer's TODOs and reorganized the assets.</p></article>
+          <article class="feat reveal"><i class="bar bar--exotic"></i><h3 data-i18n="gl.did.7t">Google Play release</h3><p data-i18n="gl.did.7p">Developer account, store listing in several languages, featured graphic, a privacy policy page and an optimized build. The app passed Google's review; the public launch is up to the company.</p></article>
+          <article class="feat reveal"><i class="bar bar--rare"></i><h3 data-i18n="gl.did.8t">Beta testing</h3><p data-i18n="gl.did.8p">Tested with company staff, first by sharing the APK and then through a closed beta on Google Play, fixing what they reported along the way.</p></article>
+          <article class="feat reveal"><i class="bar bar--common"></i><h3 data-i18n="gl.did.9t">Clearer feedback</h3><p data-i18n="gl.did.9p">Loading indicators, validation messages and gentle notices at the bottom of the screen instead of blocking pop-ups, so the user always knows what the app is doing.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="section">
+      <div class="container">
+        <p class="section__label reveal" data-i18n="gl.how.label">05 · How it works</p>
+        <h2 class="section__title reveal" data-i18n="gl.how.title">Talking to the hardware</h2>
+
+        <p class="flow__title reveal" data-i18n="gl.flow.title">From the sensor to the phone</p>
+        <div class="flow reveal">
+          <div class="flow__step"><span class="flow__n">1</span><b data-i18n="gl.flow.1t">Sensors and modules</b><small data-i18n="gl.flow.1s">power, soil and water</small></div>
+          <div class="flow__arrow" aria-hidden="true">→</div>
+          <div class="flow__step"><span class="flow__n">2</span><b data-i18n="gl.flow.2t">Controller</b><small data-i18n="gl.flow.2s">runs the system on the local network</small></div>
+          <div class="flow__arrow" aria-hidden="true">→</div>
+          <div class="flow__step flow__step--accent"><span class="flow__n">3</span><b>TCP · UDP</b><small data-i18n="gl.flow.3s">TCP for reliable requests, UDP for fast telemetry</small></div>
+          <div class="flow__arrow" aria-hidden="true">→</div>
+          <div class="flow__step"><span class="flow__n">4</span><b data-i18n="gl.flow.4t">App state</b><small data-i18n="gl.flow.4s">Provider, SQLite for local data</small></div>
+          <div class="flow__arrow" aria-hidden="true">→</div>
+          <div class="flow__step"><span class="flow__n">5</span><b data-i18n="gl.flow.5t">Screens</b><small data-i18n="gl.flow.5s">dashboard, modules, charts, cameras</small></div>
+        </div>
+
+        <div class="arch__notes arch__notes--row">
+          <div class="note reveal"><h3 data-i18n="gl.how.n1t">Read-only by design</h3><p data-i18n="gl.how.n1p">The app only reads data from the controller. Configuration stays in the desktop software, so a phone can never leave a grow in a broken state.</p></div>
+          <div class="note reveal"><h3 data-i18n="gl.how.n2t">Local first</h3><p data-i18n="gl.how.n2p">Like the controller itself, the app works on the local network without depending on a cloud server.</p></div>
+          <div class="note reveal"><h3 data-i18n="gl.how.n3t">Working in an existing codebase</h3><p data-i18n="gl.how.n3p">I kept the original architecture (Provider) and improved it from the inside instead of rewriting, so the company keeps a codebase it already knows.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CHALLENGES ============ -->
+    <section class="section">
+      <div class="container">
+        <p class="section__label reveal" data-i18n="gl.ch.label">06 · Challenges</p>
+        <h2 class="section__title reveal" data-i18n="gl.ch.title">Problems and how I solved them</h2>
+        <div class="challenges">
+          <article class="challenge reveal">
+            <span class="challenge__tag" data-i18n="gl.ch.1tag">Legacy code</span>
+            <h3 data-i18n="gl.ch.1t">Someone else's unfinished project</h3>
+            <p data-i18n="gl.ch.1p"><b>Problem:</b> the app didn't even build on current Flutter versions, and it came with inherited bugs and TODOs.</p>
+            <p data-i18n="gl.ch.1s"><b>Solution:</b> updated the dependencies, fixed the incompatibilities, studied the code before changing it and closed every TODO left by the previous developer.</p>
+          </article>
+          <article class="challenge reveal">
+            <span class="challenge__tag" data-i18n="gl.ch.2tag">Networking</span>
+            <h3 data-i18n="gl.ch.2t">Search that no longer worked</h3>
+            <p data-i18n="gl.ch.2p"><b>Problem:</b> searching for a controller by serial number or hostname relied on a method Flutter no longer supported.</p>
+            <p data-i18n="gl.ch.2s"><b>Solution:</b> the app now saves the serial number and hostname of each controller it finds together with its IP, and searches by that IP, with validation and clear warnings.</p>
+          </article>
+          <article class="challenge reveal">
+            <span class="challenge__tag" data-i18n="gl.ch.3tag">Robustness</span>
+            <h3 data-i18n="gl.ch.3t">Crashes when the network failed</h3>
+            <p data-i18n="gl.ch.3p"><b>Problem:</b> an IP with no controller, a dropped connection or no internet threw unhandled exceptions and closed the app.</p>
+            <p data-i18n="gl.ch.3s"><b>Solution:</b> proper exception handling around every connection, warnings the user must confirm, and a controlled return to the search screen.</p>
+          </article>
+          <article class="challenge reveal">
+            <span class="challenge__tag" data-i18n="gl.ch.4tag">Data</span>
+            <h3 data-i18n="gl.ch.4t">Values that didn't make sense</h3>
+            <p data-i18n="gl.ch.4p"><b>Problem:</b> zero values loaded forever, offline modules showed as online and charts showed °C or % on ON/OFF outputs.</p>
+            <p data-i18n="gl.ch.4s"><b>Solution:</b> data is validated before it's drawn, module status is checked before opening it, and boolean data gets its own chart.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RESULTS ============ -->
+    <section class="section section--tight">
+      <div class="container">
+        <p class="section__label reveal" data-i18n="gl.res.label">07 · Results</p>
+        <h2 class="section__title reveal" data-i18n="gl.res.title">What changed</h2>
+        <div class="results reveal">
+          <div class="result"><b data-i18n="gl.res.1b">Instant</b><span data-i18n="gl.res.1s">sensor values, down from 5–10 seconds</span></div>
+          <div class="result"><b>3</b><span data-i18n="gl.res.2s">languages: Portuguese, English and Spanish</span></div>
+          <div class="result"><b>3</b><span data-i18n="gl.res.3s">beta testers from the company</span></div>
+          <div class="result"><b>✓</b><span data-i18n="gl.res.4s">approved in Google Play's review</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ NEXT STEPS + LEARNED ============ -->
+    <section class="section">
+      <div class="container cs-split">
+        <div class="reveal">
+          <p class="section__label" data-i18n="gl.next.label">08 · Next steps</p>
+          <h2 class="section__title" data-i18n="gl.next.title">What I'd do next</h2>
+        </div>
+        <ul class="limits reveal">
+          <li data-i18n="gl.next.1"><b>Automated tests.</b> The app was tested by hand on several Android devices; unit tests for the critical parts would be the next step.</li>
+          <li data-i18n="gl.next.2"><b>iOS.</b> The code is cross-platform, but publishing on the App Store needs a Mac, which wasn't available.</li>
+          <li data-i18n="gl.next.3"><b>More notifications.</b> Push notifications already work; more event types would cover more of the system.</li>
+          <li data-i18n="gl.next.4"><b>Several controllers.</b> Managing more than one controller at a time, with different permissions.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container cs-split">
+        <div class="reveal">
+          <p class="section__label" data-i18n="gl.learn.label">09 · Takeaways</p>
+          <h2 class="section__title" data-i18n="cs.learn.title">What I learned</h2>
+        </div>
+        <ul class="learned reveal">
+          <li data-i18n="gl.learn.1">Picking up and improving a codebase I didn't write, instead of starting from scratch.</li>
+          <li data-i18n="gl.learn.2">Working with real hardware over TCP and UDP, where the network can and does fail.</li>
+          <li data-i18n="gl.learn.3">Working with a company: feedback from the team and beta testers, priorities and deadlines.</li>
+          <li data-i18n="gl.learn.4">The full release process on Google Play, from the store listing to the privacy policy and review.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="cs-cta reveal">
+          <h2 data-i18n="gl.cta.title">Want to know more?</h2>
+          <p data-i18n="gl.cta.text">The code is private, but I'm happy to walk through how it works in an interview.</p>
+          <div class="hero__actions cs-cta__actions">
+            <a href="../#contact" class="btn btn--primary" data-i18n="cs.cta.talk">Get in touch</a>
+            <a href="../#projects" class="btn btn--ghost" data-i18n="gl.cta.back">Other projects</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Miguel Caetano · <a href="../" data-i18n="cs.footer.home">Back to home</a></p>
+  </footer>
+
+  <script src="../i18n.js"></script>
+  <script src="../script.js"></script>
+</body>
+</html>

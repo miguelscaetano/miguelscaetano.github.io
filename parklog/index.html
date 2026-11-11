@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="cs.meta.title">ParkLog · Case study · Miguel Caetano</title>
+  <meta name="description" data-i18n-attr="content:cs.meta.desc" content="ParkLog: a React Native and Expo app that recognizes cars with AI and turns them into a collection. Architecture, technical decisions, tests and limitations." />
+  <link rel="canonical" href="https://caetano14.github.io/parklog/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://caetano14.github.io/parklog/" />
+  <meta property="og:title" content="ParkLog · Case study" />
+  <meta property="og:description" content="A Pokédex for cars: React Native, Expo, AI through a Cloudflare Worker and 173 unit tests." />
+  <meta property="og:image" content="https://caetano14.github.io/assets/og-parklog.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="ParkLog, a Pokédex for cars, with app screens" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <meta name="theme-color" content="#0A0A0A" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../case-study.css" />
+</head>
+<body>
+
+  <header class="nav" id="nav">
+    <a href="../" class="nav__logo">MC<span>.</span></a>
+    <div class="nav__right">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+      </div>
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" data-i18n-attr="aria-label:nav.menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+    <nav class="nav__links" id="navLinks">
+      <a href="../#about" data-i18n="nav.about">About</a>
+      <a href="../#projects" data-i18n="nav.projects">Projects</a>
+      <a href="../#stack" data-i18n="nav.stack">Stack</a>
+      <a href="../#contact" class="nav__cta" data-i18n="nav.contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="cs-hero">
+      <div class="hero__glow"></div>
+      <div class="container cs-hero__inner">
+        <div class="cs-hero__text">
+          <a href="../#projects" class="back" data-i18n="cs.back">← Back to projects</a>
+          <p class="section__label" data-i18n="cs.label">Case study</p>
+          <h1 class="cs-title">ParkLog</h1>
+          <p class="cs-lead" data-i18n="cs.lead">
+            <strong>A pocket album for cars.</strong> Spot a car on the street and take a photo. The app
+            suggests the brand, model and year with a vision model, scores its rarity, pins where you saw it
+            and unlocks achievements as your collection grows. A Pokédex for cars.
+          </p>
+          <div class="badges">
+            <span>Android + iOS</span><span>Expo SDK 54</span><span data-i18n="cs.badge.tests">173 tests</span><span>Offline-first</span>
+          </div>
+          <div class="hero__actions">
+            <a href="#demo" class="btn btn--primary" data-i18n="cs.cta.demo">▶ Watch demo</a>
+            <a href="https://github.com/caetano14/parklog/releases/latest/download/parklog.apk" class="btn btn--ghost">⬇ Android APK</a>
+            <a href="https://github.com/caetano14/parklog" target="_blank" rel="noopener" class="btn btn--ghost" data-i18n="cs.cta.code">Code ↗</a>
+          </div>
+        </div>
+
+        <div class="cs-hero__visual">
+          <div class="phone phone--hero">
+            <div class="phone__screen">
+              <img src="../assets/parklog/home.webp" srcset="../assets/parklog/home-sm.webp 430w, ../assets/parklog/home.webp 645w" sizes="(max-width: 720px) 220px, 270px" width="645" height="1398" alt="ParkLog home screen with recently added cars" data-i18n-attr="alt:projects.phoneAlt" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ QUICK FACTS ============ -->
+    <section class="container facts reveal">
+      <div><span class="facts__k" data-i18n="cs.facts.typeK">Type</span><span class="facts__v" data-i18n="cs.facts.typeV">Personal project, built in about a week</span></div>
+      <div><span class="facts__k" data-i18n="cs.facts.platK">Platforms</span><span class="facts__v" data-i18n="cs.facts.platV">Android (APK) and iOS</span></div>
+      <div><span class="facts__k">Stack</span><span class="facts__v">React Native 0.81 · Expo · Cloudflare Workers</span></div>
+      <div><span class="facts__k" data-i18n="cs.facts.qualK">Quality</span><span class="facts__v" data-i18n="cs.facts.qualV">173 unit tests · CI on GitHub Actions</span></div>
+    </section>
+
+    <!-- ============ DEMO ============ -->
+    <section class="section" id="demo">
+      <div class="container">
+        <p class="section__label reveal" data-i18n="cs.demo.label">01 · Demo</p>
+        <h2 class="section__title reveal" data-i18n="cs.demo.title">The app in action</h2>
+        <div class="video reveal">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/4zAzQh7ZVGI?rel=0"
+            title="ParkLog demo"
+            loading="lazy"
+            allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+            allowfullscreen></iframe>
+        </div>
+        <p class="video__note reveal" data-i18n="cs.demo.note">The video shows the app in English; Portuguese is also built in. <a href="https://youtu.be/4zAzQh7ZVGI" target="_blank" rel="noopener">Open on YouTube ↗</a></p>
+      </div>
+    </section>
+
+    <!-- ============ WHAT IT SHOWS ============ -->
+    <section class="section">
+      <div class="container">
+        <p class="section__label reveal" data-i18n="cs.shows.label">02 · In short</p>
+        <h2 class="section__title reveal" data-i18n="cs.shows.title">What this project shows</h2>
+        <div class="shows">
+          <article class="show reveal"><span class="show__n">01</span><h3 data-i18n="cs.shows.1t">Secure AI integration</h3><p data-i18n="cs.shows.1p">The model is called through a Cloudflare Worker, so the API key never ships inside the app. The app validates the response again before using it.</p></article>
+          <article class="show reveal"><span class="show__n">02</span><h3 data-i18n="cs.shows.2t">Product thinking</h3><p data-i18n="cs.shows.2p">Recognition is opt-in, never saves on its own, can be undone, and is offered at the moment it makes sense instead of at install time.</p></article>
+          <article class="show reveal"><span class="show__n">03</span><h3 data-i18n="cs.shows.3t">Testable logic</h3><p data-i18n="cs.shows.3p">Rarity, response validation, backup sanitizing, search and achievements are pure functions covered by 173 tests, run on every push.</p></article>
+          <article class="show reveal"><span class="show__n">04</span><h3 data-i18n="cs.shows.4t">Data safety</h3><p data-i18n="cs.shows.4p">Providers only write after loading, imported backups are treated as untrusted input, and importing never deletes or overwrites anything.</p></article>
+          <article class="show reveal"><span class="show__n">05</span><h3>Offline-first</h3><p data-i18n="cs.shows.5p">Everything lives on the device, with no account and no backend to keep running. The only server is the optional recognition proxy.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GALLERY ============ -->
+    <section class="section section--tight">
+      <div class="container">
+        <p class="section__label reveal" data-i18n="cs.gal.label">03 · Screens</p>
+        <h2 class="section__title reveal" data-i18n="cs.gal.title">The app</h2>
+      </div>
+      <div class="gallery reveal">
+        <figure>
+          <div class="gallery__phone"><img src="../assets/parklog/home.webp" srcset="../assets/parklog/home-sm.webp 430w, ../assets/parklog/home.webp 645w" sizes="(max-width: 720px) 220px, 270px" width="645" height="1398" alt="Home" loading="lazy" /></div>
+          <figcaption data-i18n="cs.gal.home"><b>Home</b>Car count and recently added cars, with a Pokédex-style number</figcaption>
+        </figure>
+        <figure>
+          <div class="gallery__phone"><img src="../assets/parklog/add.webp" srcset="../assets/parklog/add-sm.webp 430w, ../assets/parklog/add.webp 645w" sizes="(max-width: 720px) 220px, 270px" width="645" height="1398" alt="Add a car with an AI suggestion" loading="lazy" /></div>
+          <figcaption data-i18n="cs.gal.add"><b>Add a car</b>AI suggestion with a confidence level and an Apply button</figcaption>
+        </figure>
+        <figure>
+          <div class="gallery__phone"><img src="../assets/parklog/detail.webp" srcset="../assets/parklog/detail-sm.webp 430w, ../assets/parklog/detail.webp 645w" sizes="(max-width: 720px) 220px, 270px" width="645" height="1398" alt="Car detail" loading="lazy" /></div>
+          <figcaption data-i18n="cs.gal.detail"><b>Car detail</b>Rarity, country, registration number, date and time</figcaption>
+        </figure>
+        <figure>
+          <div class="gallery__phone"><img src="../assets/parklog/collection.webp" srcset="../assets/parklog/collection-sm.webp 430w, ../assets/parklog/collection.webp 645w" sizes="(max-width: 720px) 220px, 270px" width="645" height="1398" alt="Collection grouped by brand" loading="lazy" /></div>
+          <figcaption data-i18n="cs.gal.collection"><b>Collection</b>Grouped by brand, with search, filters and two card sizes</figcaption>
+        </figure>
+        <figure>
+          <div class="gallery__phone"><img src="../assets/parklog/achievements.webp" srcset="../assets/parklog/achievements-sm.webp 430w, ../assets/parklog/achievements.webp 645w" sizes="(max-width: 720px) 220px, 270px" width="645" height="1398" alt="Achievements" loading="lazy" /></div>
+          <figcaption data-i18n="cs.gal.achievements"><b>Achievements</b>50 achievements across quantity, brands, rarity, time and style</figcaption>
+        </figure>
+        <figure>
+          <div class="gallery__phone"><img src="../assets/parklog/profile.webp" srcset="../assets/parklog/profile-sm.webp 430w, ../assets/parklog/profile.webp 645w" sizes="(max-width: 720px) 220px, 270px" width="645" height="1398" alt="Profile" loading="lazy" /></div>
+          <figcaption data-i18n="cs.gal.profile"><b>Profile</b>Optional recognition, garage stats and a rarity chart</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ FEATURES ============ -->
+    <section class="section">
+      <div class="container">
+        <p class="section__label reveal" data-i18n="cs.feat.label">04 · Features</p>
+        <h2 class="section__title reveal" data-i18n="cs.feat.title">What it does</h2>
+        <div class="feat-grid">
+          <article class="feat reveal"><i class="bar bar--exotic"></i><h3 data-i18n="cs.feat.1t">Optional recognition</h3><p data-i18n="cs.feat.1p">Suggests brand, model and year. High confidence fills the empty fields; medium or low confidence only shows a suggestion to apply. Everything can be undone.</p></article>
+          <article class="feat reveal"><i class="bar bar--rare"></i><h3 data-i18n="cs.feat.2t">Rarity engine</h3><p data-i18n="cs.feat.2p">Common, Rare or Exotic, calculated from the brand plus model rules. It can't be edited by hand, so the same car always gets the same rarity.</p></article>
+          <article class="feat reveal"><i class="bar bar--common"></i><h3 data-i18n="cs.feat.3t">116 brands</h3><p data-i18n="cs.feat.3p">About 1,600 suggested models. The country comes from the brand and is only asked for when the brand isn't in the list.</p></article>
+          <article class="feat reveal"><i class="bar bar--exotic"></i><h3 data-i18n="cs.feat.4t">Collection and search</h3><p data-i18n="cs.feat.4p">Grouped by brand with sticky headers, searchable by brand and model, filterable by rarity, year and country, with large or small cards.</p></article>
+          <article class="feat reveal"><i class="bar bar--rare"></i><h3 data-i18n="cs.feat.5t">Location and time</h3><p data-i18n="cs.feat.5p">Cars taken with the camera are pinned on a map, with the date, time and a Pokédex-style registration number.</p></article>
+          <article class="feat reveal"><i class="bar bar--common"></i><h3 data-i18n="cs.feat.6t">50 achievements</h3><p data-i18n="cs.feat.6p">Across quantity, brands, rarity, time and style, to give you a reason to come back.</p></article>
+          <article class="feat reveal"><i class="bar bar--exotic"></i><h3 data-i18n="cs.feat.7t">.zip backup</h3><p data-i18n="cs.feat.7p">Export and import the garage with its photos. Save it to iCloud Drive or Google Drive; Profile shows when you last backed up.</p></article>
+          <article class="feat reveal"><i class="bar bar--rare"></i><h3 data-i18n="cs.feat.8t">Edit cars</h3><p data-i18n="cs.feat.8p">Brand, model and year can be fixed after saving; country and rarity are recalculated.</p></article>
+          <article class="feat reveal"><i class="bar bar--common"></i><h3 data-i18n="cs.feat.9t">PT/EN and onboarding</h3><p data-i18n="cs.feat.9p">Follows the phone language by default, with a first launch that handles language and permissions.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ARCHITECTURE ============ -->
+    <section class="section" id="architecture">
+      <div class="container">
+        <p class="section__label reveal" data-i18n="cs.arch.label">05 · Architecture</p>
+        <h2 class="section__title reveal" data-i18n="cs.arch.title">How it's built</h2>
+
+        <p class="flow__title reveal" data-i18n="cs.flow.title">Recognizing a car</p>
+        <div class="flow reveal">
+          <div class="flow__step"><span class="flow__n">1</span><b data-i18n="cs.flow.1t">Photo</b><small data-i18n="cs.flow.1s">camera or gallery</small></div>
+          <div class="flow__arrow" aria-hidden="true">→</div>
+          <div class="flow__step"><span class="flow__n">2</span><b data-i18n="cs.flow.2t">Resize</b><small>1080 px · JPEG 75%</small></div>
+          <div class="flow__arrow" aria-hidden="true">→</div>
+          <div class="flow__step flow__step--accent"><span class="flow__n">3</span><b>Cloudflare Worker</b><small data-i18n="cs.flow.3s">checks token, type and size; holds the key</small></div>
+          <div class="flow__arrow" aria-hidden="true">→</div>
+          <div class="flow__step"><span class="flow__n">4</span><b>Anthropic API</b><small data-i18n="cs.flow.4s">brand, model, year and confidence</small></div>
+          <div class="flow__arrow" aria-hidden="true">→</div>
+          <div class="flow__step"><span class="flow__n">5</span><b data-i18n="cs.flow.5t">Validation in the app</b><small data-i18n="cs.flow.5s">the response is checked again</small></div>
+          <div class="flow__arrow" aria-hidden="true">→</div>
+          <div class="flow__step"><span class="flow__n">6</span><b data-i18n="cs.flow.6t">Form</b><small data-i18n="cs.flow.6s">fills or suggests, depending on confidence</small></div>
+        </div>
+
+        <div class="arch">
+          <div class="arch__tree reveal">
+            <p class="arch__label" data-i18n="cs.arch.tree">Project structure</p>
+<pre><code>App.js            providers and splash
+<span class="t-dir">__tests__/</span>        Jest unit tests
+<span class="t-dir">locales/</span>          iOS permission texts (PT/EN)
+<span class="t-dir">server/</span>           Cloudflare Worker (AI proxy)
+<span class="t-dir">src/</span>
+├── <span class="t-dir">achievements/</span>  50 achievements and evaluation
+├── <span class="t-dir">components/</span>    cards, sheets, error boundary
+├── <span class="t-dir">context/</span>       cars, settings, achievements
+├── <span class="t-dir">data/</span>          brand and model lists
+├── <span class="t-dir">i18n/</span>          PT/EN dictionaries and t()
+├── <span class="t-dir">navigation/</span>    AppRoot, stack and tabs
+├── <span class="t-dir">screens/</span>       Home, Add, Edit, Collection…
+├── <span class="t-dir">services/</span>      recognition client
+└── <span class="t-dir">utils/</span>         rarity, backup, photos, filters</code></pre>
+          </div>
+          <div class="arch__notes reveal">
+            <div class="note"><h3 data-i18n="cs.arch.n1t">Clear layers</h3><p data-i18n="cs.arch.n1p">Screens talk to a chain of providers (<code>I18n → Settings → Cars → Achievements</code>), which use services and pure logic. AsyncStorage, the photo files and the Worker sit at the bottom.</p></div>
+            <div class="note"><h3 data-i18n="cs.arch.n2t">The server is isolated</h3><p data-i18n="cs.arch.n2p">Only <code>src/services/recognition.js</code> knows about the server. It could be replaced by an on-device model without touching the screens.</p></div>
+            <div class="note"><h3 data-i18n="cs.arch.n3t">Fail without crashing</h3><p data-i18n="cs.arch.n3p">Native modules used in a single place are loaded lazily: if one is missing, one feature turns off instead of the app crashing.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DECISIONS ============ -->
+    <section class="section">
+      <div class="container">
+        <p class="section__label reveal" data-i18n="cs.dec.label">06 · Technical decisions</p>
+        <h2 class="section__title reveal" data-i18n="cs.dec.title">Problems and how I solved them</h2>
+        <div class="challenges">
+          <article class="challenge reveal">
+            <span class="challenge__tag" data-i18n="cs.dec.1tag">Security</span>
+            <h3 data-i18n="cs.dec.1t">The API key can't ship in the app</h3>
+            <p data-i18n="cs.dec.1p"><b>Problem:</b> a key inside a mobile app can be extracted.</p>
+            <p data-i18n="cs.dec.1s"><b>Solution:</b> a Worker of under 80 lines holds the key as a secret and validates every request. The app token isn't a strong secret, so the real protection is a monthly spending limit on the API account. The Worker doesn't store photos and the location never leaves the phone.</p>
+          </article>
+          <article class="challenge reveal">
+            <span class="challenge__tag" data-i18n="cs.dec.2tag">Product</span>
+            <h3 data-i18n="cs.dec.2t">AI can be wrong</h3>
+            <p data-i18n="cs.dec.2p"><b>Problem:</b> the model can mix up close variants of the same car.</p>
+            <p data-i18n="cs.dec.2s"><b>Solution:</b> the AI suggests instead of deciding. Only high-confidence answers fill the form on their own, and everything can be undone. The model is also told to ignore text in the image and never read license plates.</p>
+          </article>
+          <article class="challenge reveal">
+            <span class="challenge__tag" data-i18n="cs.dec.3tag">Logic</span>
+            <h3 data-i18n="cs.dec.3t">Consistent rarity</h3>
+            <p data-i18n="cs.dec.3p"><b>Problem:</b> if rarity were editable, collections would stop being comparable.</p>
+            <p data-i18n="cs.dec.3s"><b>Solution:</b> <code>calculateRarity(brand, model)</code> has two layers: the brand sets a baseline and per-model rules can only raise it. Rules match whole words, so "M3" counts but "M Sport" doesn't.</p>
+          </article>
+          <article class="challenge reveal">
+            <span class="challenge__tag" data-i18n="cs.dec.4tag">Data</span>
+            <h3 data-i18n="cs.dec.4t">Never lose the collection</h3>
+            <p data-i18n="cs.dec.4p"><b>Problem:</b> an empty first render or a broken backup could wipe real data.</p>
+            <p data-i18n="cs.dec.4s"><b>Solution:</b> providers only write after loading. If stored data can't be read, a copy of the raw text is kept. Imported backups are sanitized field by field and never overwrite anything.</p>
+          </article>
+          <article class="challenge reveal">
+            <span class="challenge__tag" data-i18n="cs.dec.5tag">Quality</span>
+            <h3 data-i18n="cs.dec.5t">Trusting changes</h3>
+            <p data-i18n="cs.dec.5p"><b>Problem:</b> with rarity rules, achievements and translations, it was easy to break something without noticing.</p>
+            <p data-i18n="cs.dec.5s"><b>Solution:</b> the logic lives in pure functions with 173 tests, including the false positives the rules avoid and PT/EN translation parity. GitHub Actions runs ESLint and the tests on every push.</p>
+          </article>
+          <article class="challenge reveal">
+            <span class="challenge__tag" data-i18n="cs.dec.6tag">Distribution</span>
+            <h3 data-i18n="cs.dec.6t">Sharing without paying everyone's bill</h3>
+            <p data-i18n="cs.dec.6p"><b>Problem:</b> a public APK with recognition turned on would let anyone run up the author's API bill.</p>
+            <p data-i18n="cs.dec.6s"><b>Solution:</b> the APK is built without the server address and token on purpose. Everything else works offline, and recognition is shown in the demo video.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STACK ============ -->
+    <section class="section section--tight">
+      <div class="container">
+        <p class="section__label reveal" data-i18n="cs.stack.label">07 · Technologies</p>
+        <h2 class="section__title reveal">Stack</h2>
+        <div class="stack-table reveal">
+          <div><span>App</span><b data-i18n="cs.stack.app">React Native 0.81, Expo SDK 54 (development build, new architecture)</b></div>
+          <div><span data-i18n="cs.stack.navK">Navigation</span><b data-i18n="cs.stack.navV">React Navigation 7 (native stack and bottom tabs)</b></div>
+          <div><span data-i18n="cs.stack.stateK">State</span><b data-i18n="cs.stack.stateV">React Context and a small custom i18n context</b></div>
+          <div><span data-i18n="cs.stack.storeK">Storage</span><b data-i18n="cs.stack.storeV">AsyncStorage for data, the document directory for photos</b></div>
+          <div><span data-i18n="cs.stack.listsK">Lists and images</span><b>FlashList, expo-image</b></div>
+          <div><span>Backup</span><b>jszip, expo-sharing, expo-document-picker</b></div>
+          <div><span data-i18n="cs.stack.proxyK">AI proxy</span><b data-i18n="cs.stack.proxyV">Cloudflare Worker calling the Anthropic Messages API</b></div>
+          <div><span data-i18n="cs.stack.testsK">Tests and CI</span><b>Jest (jest-expo), ESLint, GitHub Actions</b></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LIMITATIONS ============ -->
+    <section class="section">
+      <div class="container cs-split">
+        <div class="reveal">
+          <p class="section__label" data-i18n="cs.lim.label">08 · Technical honesty</p>
+          <h2 class="section__title" data-i18n="cs.lim.title">Limitations and next steps</h2>
+        </div>
+        <ul class="limits reveal">
+          <li data-i18n="cs.lim.1"><b>UI tests.</b> Screens and native modules have no automated tests yet. Next step: component tests and an end-to-end run.</li>
+          <li data-i18n="cs.lim.2"><b>Data scale.</b> All cars are saved as one JSON list. Fine for hundreds; thousands would call for SQLite.</li>
+          <li data-i18n="cs.lim.3"><b>Worker protection.</b> There's no per-user rate limiting. A production version would add authentication, rate limits and app attestation.</li>
+          <li data-i18n="cs.lim.4"><b>Map on Android.</b> On Android the map is replaced by the coordinates and a link to the maps app, because the native map needs a Google Maps API key.</li>
+          <li data-i18n="cs.lim.5"><b>Backups.</b> They aren't encrypted and only restore cars; settings and achievements are rebuilt from them.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ WHAT I LEARNED ============ -->
+    <section class="section">
+      <div class="container cs-split">
+        <div class="reveal">
+          <p class="section__label" data-i18n="cs.learn.label">09 · Takeaways</p>
+          <h2 class="section__title" data-i18n="cs.learn.title">What I learned</h2>
+        </div>
+        <ul class="learned reveal">
+          <li data-i18n="cs.learn.1">Integrating AI into a real product: the part you don't see (key, validation, costs) takes as much work as the part you do.</li>
+          <li data-i18n="cs.learn.2">Designing AI as an assistant rather than a decision-maker, with confidence levels and undo.</li>
+          <li data-i18n="cs.learn.3">Moving logic into pure functions so it can be properly tested, and setting up CI to run the tests on its own.</li>
+          <li data-i18n="cs.learn.4">Treating outside data (API responses, backups) as untrusted.</li>
+          <li data-i18n="cs.learn.5">Taking an app all the way: build, APK distribution, README and demo video.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="cs-cta reveal">
+          <h2 data-i18n="cs.cta.title">Try it</h2>
+          <p data-i18n="cs.cta.text">On Android you can install the APK. On iPhone, watch the video or build it from source.</p>
+          <div class="hero__actions cs-cta__actions">
+            <a href="https://github.com/caetano14/parklog/releases/latest/download/parklog.apk" class="btn btn--primary" data-i18n="cs.cta.apk">⬇ Download APK</a>
+            <a href="https://github.com/caetano14/parklog" target="_blank" rel="noopener" class="btn btn--ghost" data-i18n="cs.cta.github">Code on GitHub ↗</a>
+            <a href="../#contact" class="btn btn--ghost" data-i18n="cs.cta.talk">Get in touch</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Miguel Caetano · <a href="../" data-i18n="cs.footer.home">Back to home</a></p>
+  </footer>
+
+  <script src="../i18n.js"></script>
+  <script src="../script.js"></script>
+</body>
+</html>
