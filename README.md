@@ -1,11 +1,11 @@
-# caetano14.github.io
+# miguelscaetano.github.io
 
-My personal portfolio: **[caetano14.github.io](https://caetano14.github.io)**
+My personal portfolio: **[miguelscaetano.github.io](https://miguelscaetano.github.io)**
 
 I'm Miguel Caetano, a software developer building websites, desktop apps and mobile apps.
-This site presents who I am and what I build, with case studies of [ParkLog](https://caetano14.github.io/parklog/), my main personal project, and the [mobile app I worked on during my internship](https://caetano14.github.io/internship/).
+This site presents who I am and what I build, with case studies of [ParkLog](https://miguelscaetano.github.io/parklog/), my main personal project, and the [mobile app I worked on during my internship](https://miguelscaetano.github.io/internship/).
 
-[![Portfolio preview](assets/og-home.jpg)](https://caetano14.github.io)
+[![Portfolio preview](assets/og-home.jpg)](https://miguelscaetano.github.io)
 
 ## Highlights
 
@@ -57,7 +57,7 @@ The 404 page uses absolute paths, so it only renders correctly when served from 
 
 ## Contact
 
-[miguelscaetano.dev@gmail.com](mailto:miguelscaetano.dev@gmail.com) · [GitHub](https://github.com/caetano14)
+[miguelscaetano.dev@gmail.com](mailto:miguelscaetano.dev@gmail.com) · [GitHub](https://github.com/miguelscaetano)
 
 ---
 

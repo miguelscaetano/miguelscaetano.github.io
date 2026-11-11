@@ -31,7 +31,7 @@
     "projects.label": "02 · Projetos",
     "projects.title": "Em destaque",
     "projects.phoneLabel": "Ver o estudo de caso do ParkLog",
-    "projects.more": "Mais trabalho meu no <a href=\"https://github.com/caetano14\" target=\"_blank\" rel=\"noopener\">GitHub</a>.",
+    "projects.more": "Mais trabalho meu no <a href=\"https://github.com/miguelscaetano\" target=\"_blank\" rel=\"noopener\">GitHub</a>.",
     "pk.desc": "Uma Pokédex para carros. Tiras uma foto a um carro na rua, a app sugere a marca, o modelo e o ano com IA, calcula a raridade, marca onde o viste e desbloqueia conquistas. Feita em cerca de uma semana; funciona offline, sem conta, e os dados ficam no telemóvel.",
     "pk.f1": "<b>IA sem expor a chave:</b> o modelo é chamado através de um Cloudflare Worker e a app volta a validar a resposta",
     "pk.f2": "<b>A IA sugere, não decide:</b> o reconhecimento é opcional, tem níveis de confiança e pode ser desfeito",
