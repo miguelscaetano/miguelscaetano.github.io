@@ -1,9 +1,4 @@
-/* =========================================================
-   Estudos de caso (ParkLog e estágio)
-   Usa as variáveis e os componentes de ../style.css
-   ========================================================= */
-
-.section--tight { padding: 72px 0; }
+section--tight { padding: 72px 0; }
 
 /* ---------- Hero ---------- */
 .cs-hero { position: relative; padding: 140px 0 72px; overflow: hidden; }
@@ -156,9 +151,6 @@ code { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-si
   .gallery figure { flex-basis: 200px; }
 }
 
-/* =========================================================
-   Adições: badges, vídeo, "o que mostra", stack, limitações
-   ========================================================= */
 .phone--hero .phone__screen > img { border-radius: 34px; }
 
 .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
@@ -252,3 +244,22 @@ code { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-si
 @media (max-width: 420px) { .results { grid-template-columns: 1fr; } }
 .note-private { align-items: flex-start; max-width: 560px; line-height: 1.5; }
 .note-private::before { flex: none; margin-top: 7px; }
+
+.cs-hero__inner--wide { grid-template-columns: 1fr 1.1fr; }
+.browser--hero { max-width: 640px; transform: rotate(1.5deg); }
+.browser--hero:hover { transform: rotate(0); }
+.shots { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.shots figure { margin: 0; }
+.shots .browser { max-width: none; }
+.shots figcaption { margin-top: 14px; font-size: 14px; color: var(--muted); line-height: 1.5; }
+.shots figcaption b { display: block; color: var(--text); font-size: 15px; }
+@media (max-width: 960px) {
+  .cs-hero__inner--wide { grid-template-columns: 1fr; }
+  .shots { grid-template-columns: 1fr; }
+}
+
+/* Títulos grandes não podem alargar a coluna em ecrãs estreitos (ex.: "INTERNSHIP") */
+.cs-hero__text { min-width: 0; }
+@media (max-width: 720px) {
+  .cs-title { font-size: clamp(44px, 14vw, 72px); overflow-wrap: anywhere; }
+}

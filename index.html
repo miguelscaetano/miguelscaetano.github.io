@@ -66,6 +66,7 @@
         </p>
         <div class="hero__actions">
           <a href="#projects" class="btn btn--primary" data-i18n="hero.cta">See projects</a>
+          <!-- ✏️ One CV per language: cv-miguel-caetano-en.pdf and cv-miguel-caetano-pt.pdf -->
           <a href="assets/cv-miguel-caetano-en.pdf" class="btn btn--ghost" download data-i18n="hero.cv" data-i18n-attr="href:cv.file">Download CV (EN)</a>
         </div>
       </div>
@@ -74,6 +75,8 @@
     <!-- ============ ABOUT ============ -->
     <section class="section" id="about">
       <div class="container about">
+        <!-- Code card instead of a photo. To use a photo later, replace this <figure> with:
+             <div class="about__photo reveal"><img src="assets/foto.jpg" alt="Miguel Caetano" /></div> -->
         <figure class="code-card reveal" aria-label="About me, written as code" data-i18n-attr="aria-label:about.codeLabel">
           <div class="code-card__bar" aria-hidden="true">
             <i></i><i></i><i></i>
@@ -87,7 +90,7 @@
   <span class="c-prop">currently</span>: <span class="c-str" data-i18n="about.codeStatus">"open to opportunities"</span>,
   <span class="c-prop">stack</span>: [
     <span class="c-str">"JavaScript"</span>, <span class="c-str">"Python"</span>,
-    <span class="c-str">"Java"</span>, <span class="c-str">"C#"</span>, <span class="c-str">"React Native"</span>,
+    <span class="c-str">"Java"</span>, <span class="c-str">"C#"</span>, <span class="c-str">"C++"</span>,
     <span class="c-str">"React"</span>, <span class="c-str">"Node.js"</span>,
     <span class="c-str">"React Native"</span>, <span class="c-str">"Flutter"</span>,
     <span class="c-str">"PostgreSQL"</span>, <span class="c-str">"MongoDB"</span>,
@@ -99,13 +102,15 @@
         <div class="about__text reveal">
           <p class="section__label" data-i18n="about.label">01 · About me</p>
           <h2 class="section__title" data-i18n="about.title">I like turning ideas into apps people actually want to use.</h2>
+          <!-- ✏️ EDIT: who you are, what you study/do, what you are looking for (and the PT version in i18n.js) -->
           <p data-i18n="about.p1">
             I'm a software developer who works across the web, desktop and mobile. I like taking an idea all
             the way: architecture, design, performance and the details that make the difference.
           </p>
           <p data-i18n="about.p2">
             My main project is <strong>ParkLog</strong>, an Android and iOS app I built from scratch, with
-            AI car recognition, a serverless backend and 173 automated tests. During my internship at an
+            AI car recognition, a serverless backend and 173 automated tests. I also built and published
+            Custo Real, a Chrome extension with real users. During my internship at an
             agricultural automation company, I took a mobile app for smart growing systems from unstable
             prototype to Google Play approval. I'm currently looking for an opportunity to grow in a development team.
           </p>
@@ -162,6 +167,49 @@
               <a href="parklog/" class="btn btn--primary btn--sm" data-i18n="pk.case">See case study →</a>
               <a href="parklog/#demo" class="btn btn--ghost btn--sm">▶ Demo</a>
               <a href="https://github.com/miguelscaetano/parklog" target="_blank" rel="noopener" class="btn btn--ghost btn--sm" data-i18n="pk.code">Code ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Browser extension: Custo Real -->
+        <article class="project reveal">
+          <div class="project__visual">
+            <a href="custo-real/" class="browser-stack" aria-label="See the Custo Real case study" data-i18n-attr="aria-label:cr.card.visualLabel">
+              <div class="browser">
+                <div class="browser__bar" aria-hidden="true"><i></i><i></i><i></i><span class="browser__url">standvirtual.com</span></div>
+                <img src="assets/custo-real/anuncio.webp" srcset="assets/custo-real/anuncio-sm.webp 760w, assets/custo-real/anuncio.webp 1280w" sizes="(max-width: 960px) 90vw, 480px" width="1280" height="594" alt="Custo Real panel on a car listing, showing the annual road tax and monthly fuel cost" data-i18n-attr="alt:cr.alt.anuncio" loading="lazy" />
+              </div>
+              <img class="panel-float" src="assets/custo-real/painel.webp" width="303" height="437" alt="" loading="lazy" />
+            </a>
+          </div>
+
+          <div class="project__body">
+            <div class="project__head">
+              <h3 class="project__name">Custo Real</h3>
+              <span class="tag" data-i18n="cr.card.tag">Chrome extension · JavaScript</span>
+            </div>
+            <p class="project__desc" data-i18n="cr.card.desc">
+              A browser extension that shows, on every car listing on Standvirtual (Portugal's largest car
+              marketplace), an estimate of the annual road tax (IUC) and the monthly fuel cost. Built and
+              published on the Chrome Web Store in about a week.
+            </p>
+
+            <ul class="features">
+              <li data-i18n="cr.card.f1"><b>Official 2026 tax rules</b>, with the breakdown of the calculation and honest ranges when data is missing</li>
+              <li data-i18n="cr.card.f2"><b>Live fuel prices</b> from the government's DGEG portal, averaged by district and cached</li>
+              <li data-i18n="cr.card.f3"><b>Reads the data embedded in the page</b>, with pure, tested functions for parsing and calculations</li>
+              <li data-i18n="cr.card.f4"><b>Privacy first:</b> no data collected, no servers, minimal permissions</li>
+            </ul>
+
+            <div class="chips">
+              <span>JavaScript</span><span>Manifest V3</span><span>Chrome Extensions API</span>
+              <span>Shadow DOM</span><span>Jest</span><span>Chrome Web Store</span>
+            </div>
+
+            <div class="project__links">
+              <a href="https://chromewebstore.google.com/detail/custo-real/fdnkfcnohdgionjojhfmckkckonjcmnm" target="_blank" rel="noopener" class="btn btn--primary btn--sm" data-i18n="cr.cta.store">Add to Chrome ↗</a>
+              <a href="custo-real/" class="btn btn--ghost btn--sm" data-i18n="pk.case">See case study →</a>
+              <a href="https://github.com/miguelscaetano/custo-real" target="_blank" rel="noopener" class="btn btn--ghost btn--sm" data-i18n="pk.code">Code ↗</a>
             </div>
           </div>
         </article>
@@ -223,7 +271,7 @@
           </div>
           <div class="stack__group reveal">
             <h3><i class="bar bar--rare"></i>Web</h3>
-            <ul><li>React</li><li>Node.js</li><li>HTML &amp; CSS</li><li>Bootstrap</li><li>REST APIs</li></ul>
+            <ul><li>React</li><li>Node.js</li><li>HTML &amp; CSS</li><li>Bootstrap</li><li>REST APIs</li><li data-i18n="stack.ext">Browser extensions (MV3)</li></ul>
           </div>
           <div class="stack__group reveal">
             <h3><i class="bar bar--common"></i>Mobile</h3>
@@ -246,10 +294,8 @@
         <a href="mailto:miguelscaetano.dev@gmail.com" class="contact__email">miguelscaetano.dev@gmail.com</a>
         <div class="contact__links">
           <a href="https://github.com/miguelscaetano" target="_blank" rel="noopener">GitHub ↗</a>
-                    <a href="assets/cv-miguel-caetano-en.pdf" download data-i18n="contact.cv" data-i18n-attr="href:cv.file">CV in English
-                      (PDF) ↓</a>
-                    <a href="assets/cv-miguel-caetano-pt.pdf" download data-i18n="contact.cvOther" data-i18n-attr="href:cv.otherFile">CV in
-                      Portuguese (PDF) ↓</a>
+          <a href="assets/cv-miguel-caetano-en.pdf" download data-i18n="contact.cv" data-i18n-attr="href:cv.file">CV in English (PDF) ↓</a>
+          <a href="assets/cv-miguel-caetano-pt.pdf" download data-i18n="contact.cvOther" data-i18n-attr="href:cv.otherFile">CV in Portuguese (PDF) ↓</a>
         </div>
       </div>
     </section>

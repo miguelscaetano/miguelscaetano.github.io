@@ -1,3 +1,14 @@
+/* =========================================================
+   i18n: o HTML está escrito em inglês (idioma por defeito).
+   Aqui fica só a tradução portuguesa, por chave.
+
+   - data-i18n="chave"                → troca o conteúdo do elemento
+   - data-i18n-attr="atributo:chave"  → troca um atributo (alt, href…)
+     (vários separados por ";")
+
+   Para acrescentar um texto: escreve-o em inglês no HTML com uma
+   chave nova e põe aqui a versão portuguesa com a mesma chave.
+   ========================================================= */
 (function () {
   const PT = {
     /* ---------- Partilhado ---------- */
@@ -23,7 +34,7 @@
     "about.codeComment": "// sobre mim",
     "about.codeStatus": "\"aberto a oportunidades\"",
     "about.p1": "Sou programador e trabalho em web, desktop e mobile. Gosto de pegar numa ideia e levá-la até ao fim: arquitetura, design, performance e os detalhes que fazem a diferença.",
-    "about.p2": "O meu projeto principal é o <strong>ParkLog</strong>, uma app para Android e iOS que construí de raiz, com reconhecimento de carros por IA, um backend serverless e 173 testes automáticos. No estágio numa empresa de automação agrícola, levei uma app para sistemas de cultivo inteligente de um protótipo instável até à aprovação na Google Play. Neste momento procuro uma oportunidade para crescer numa equipa de desenvolvimento.",
+    "about.p2": "O meu projeto principal é o <strong>ParkLog</strong>, uma app para Android e iOS que construí de raiz, com reconhecimento de carros por IA, um backend serverless e 173 testes automáticos. Também fiz e publiquei o Custo Real, uma extensão para o Chrome com utilizadores reais. No estágio numa empresa de automação agrícola, levei uma app para sistemas de cultivo inteligente de um protótipo instável até à aprovação na Google Play. Neste momento procuro uma oportunidade para crescer numa equipa de desenvolvimento.",
     "about.f1": "Testes unitários<br />no ParkLog",
     "about.f2": "Plataformas:<br />Android e iOS",
     "about.f3": "Apps<br />bilingues",
@@ -200,6 +211,112 @@
     "cs.cta.github": "Código no GitHub ↗",
     "cs.cta.talk": "Falar comigo",
     "cs.footer.home": "Voltar ao início",
+
+    /* ---------- Estudo de caso: Custo Real (extensão) ---------- */
+    "stack.ext": "Extensões de browser (MV3)",
+    "cr.card.visualLabel": "Ver o estudo de caso do Custo Real",
+    "cr.card.tag": "Extensão Chrome · JavaScript",
+    "cr.card.desc": "Uma extensão de browser que mostra, em cada anúncio de carro do Standvirtual, uma estimativa do IUC anual e do custo mensal de combustível. Feita e publicada na Chrome Web Store em cerca de uma semana.",
+    "cr.card.f1": "<b>Regras oficiais do IUC de 2026</b>, com as parcelas do cálculo e intervalos honestos quando faltam dados",
+    "cr.card.f2": "<b>Preços dos combustíveis em tempo real</b> do portal da DGEG, com média por distrito e cache",
+    "cr.card.f3": "<b>Lê os dados embutidos na página</b>, com funções puras e testadas para a leitura e os cálculos",
+    "cr.card.f4": "<b>Privacidade primeiro:</b> não recolhe dados, sem servidores, permissões mínimas",
+    "cr.cta.store": "Adicionar ao Chrome ↗",
+    "cr.alt.anuncio": "Painel do Custo Real num anúncio de carro, com o IUC anual e o custo mensal de combustível",
+
+    "cr.meta.title": "Custo Real · Estudo de caso · Miguel Caetano",
+    "cr.meta.desc": "Custo Real: uma extensão para o Chrome que mostra o IUC anual e o custo mensal de combustível em cada anúncio de carro do Standvirtual. Arquitetura, decisões técnicas e limitações.",
+    "cr.label": "Estudo de caso · Extensão de browser",
+    "cr.lead": "<strong>O custo real de um carro usado, no próprio anúncio.</strong> Uma extensão para o Chrome que mostra, em cada anúncio de carro do Standvirtual, uma estimativa do IUC anual e do custo mensal de combustível, sem abrir nenhuma calculadora.",
+    "cr.badge.privacy": "Não recolhe dados",
+    "cr.badge.rules": "Regras do IUC de 2026",
+    "cr.facts.typeV": "Projeto pessoal, feito e publicado em cerca de uma semana",
+    "cr.facts.privK": "Privacidade",
+    "cr.facts.privV": "Não recolhe dados, sem servidores nem analytics",
+
+    "cr.prob.label": "01 · O problema",
+    "cr.prob.title": "O preço do anúncio é só parte do custo.",
+    "cr.prob.p1": "Quem compra um carro usado em Portugal paga também o IUC todos os anos e o combustível todos os meses. Ambos dependem de dados escondidos no anúncio: a data da 1.ª matrícula, a cilindrada, as emissões de CO₂, o combustível e o consumo.",
+    "cr.prob.p2": "Comparar carros obrigava a copiar esses valores para calculadoras à parte, anúncio a anúncio. O Custo Real faz essas contas no próprio anúncio, assim que a página abre.",
+
+    "cr.gal.label": "02 · Ecrãs",
+    "cr.gal.title": "A extensão a funcionar",
+    "cr.gal.s2000": "<b>Estimativa completa</b>IUC pela tabela oficial e custo de combustível com o consumo indicado no anúncio",
+    "cr.gal.co2": "<b>Dados em falta</b>Sem CO₂ no anúncio: mostra o intervalo possível e deixa escrever o valor",
+    "cr.gal.opcoes": "<b>Opções e elétricos</b>Preços dos combustíveis por distrito em tempo real; os 100 % elétricos estão isentos de IUC",
+    "cr.gal.comercial": "<b>Comerciais</b>O combustível é calculado; o IUC não é adivinhado, porque depende do peso bruto",
+    "cr.alt.s2000": "Painel com o IUC e o custo de combustível a partir do consumo do anúncio",
+    "cr.alt.co2": "Painel num anúncio sem CO₂, com o intervalo e o campo para o escrever",
+    "cr.alt.opcoes": "Opções com os preços da DGEG por distrito e um carro elétrico isento de IUC",
+    "cr.alt.comercial": "Painel num comercial, em que o IUC depende do peso bruto",
+
+    "cr.feat.label": "03 · Funcionalidades",
+    "cr.feat.1t": "IUC com as parcelas",
+    "cr.feat.1p": "Estimativa do IUC anual com cada parte do cálculo: cilindrada, CO₂, coeficiente do ano e adicional do gasóleo.",
+    "cr.feat.2t": "Custo mensal de combustível",
+    "cr.feat.2p": "Usa o consumo do anúncio, ou um consumo por defeito, com os quilómetros por mês e os preços definidos nas opções.",
+    "cr.feat.3t": "Preços em tempo real",
+    "cr.feat.3p": "Os preços da gasolina, do gasóleo e do GPL vêm do portal da DGEG, com média por distrito e cache de 12 horas, e valores manuais como alternativa.",
+    "cr.feat.4t": "Honesto quando faltam dados",
+    "cr.feat.4p": "Quando falta um valor, diz qual é em vez de o inventar. Sem CO₂, mostra o intervalo possível e deixa escrever o valor.",
+    "cr.feat.5t": "Casos especiais tratados",
+    "cr.feat.5p": "Elétricos (isentos), carros anteriores a 1981, importados, híbridos, GPL e comerciais, cada um com a sua mensagem.",
+    "cr.feat.6t": "Não estraga o site",
+    "cr.feat.6p": "O painel vive num Shadow DOM, por isso não herda os estilos do Standvirtual nem mexe no layout, e pode ser minimizado.",
+
+    "cr.arch.label": "04 · Arquitetura",
+    "cr.flow.title": "Do anúncio ao painel",
+    "cr.flow.1t": "Página do anúncio",
+    "cr.flow.1s": "JSON embutido pelo site (__NEXT_DATA__)",
+    "cr.flow.2t": "Adaptador do site",
+    "cr.flow.2s": "só conhece o Standvirtual",
+    "cr.flow.3t": "Normalizador",
+    "cr.flow.3s": "\"1 598 cm3\", \"5,4 l/100km\", \"03/2015\" → uma só estrutura",
+    "cr.flow.4t": "Cálculos",
+    "cr.flow.4s": "IUC e combustível, funções puras",
+    "cr.flow.5t": "Painel",
+    "cr.tree.content": "adaptador → normalizador → cálculos → painel",
+    "cr.tree.bg": "service worker: preços da DGEG + cache",
+    "cr.tree.data": "(só dados)",
+    "cr.tree.dgeg": "cliente da DGEG, média por distrito",
+    "cr.tree.options": "página de opções",
+    "cr.tree.tests": "Jest, casos de anúncios reais",
+    "cr.arch.n1t": "Três camadas separadas",
+    "cr.arch.n1p": "O adaptador é a única parte que conhece o Standvirtual. Suportar outro site é juntar um ficheiro em <code>src/sites</code>; o normalizador e os cálculos ficam iguais.",
+    "cr.arch.n2t": "Regras como dados",
+    "cr.arch.n2p": "As tabelas do IUC estão num ficheiro só de dados. Atualizá-las para um novo ano é copiar um ficheiro e mudar os valores, sem mexer na lógica.",
+    "cr.arch.n3t": "Sem build nem frameworks",
+    "cr.arch.n3p": "JavaScript simples com Manifest V3. A extensão é pequena, fácil de rever e rápida a carregar.",
+
+    "cr.dec.label": "05 · Decisões técnicas",
+    "cr.dec.1tag": "Dados",
+    "cr.dec.1t": "Ler o anúncio de forma fiável",
+    "cr.dec.1p": "<b>Problema:</b> ler o texto visível parte sempre que o site muda o layout.",
+    "cr.dec.1s": "<b>Solução:</b> o adaptador lê o JSON que o site embute na página (<code>__NEXT_DATA__</code>). Quando o site muda de anúncio sem recarregar, a extensão pede o HTML do anúncio aberto para ler os dados dele.",
+    "cr.dec.2tag": "Regras",
+    "cr.dec.2t": "Acertar no imposto",
+    "cr.dec.2p": "<b>Problema:</b> as tabelas oficiais do IUC estão publicadas como imagens, e as regras dependem da data da matrícula, do combustível e da norma de medição das emissões.",
+    "cr.dec.2s": "<b>Solução:</b> transcrevi as tabelas do Código do IUC, cruzei-as com exemplos de uma associação de consumidores e transformei esses exemplos oficiais em testes.",
+    "cr.dec.3tag": "Incerteza",
+    "cr.dec.3t": "Mostrar um intervalo em vez de adivinhar",
+    "cr.dec.3p": "<b>Problema:</b> muitos anúncios não indicam o CO₂, não dizem se foi medido em NEDC ou WLTP, ou só dizem \"2007\" sem o mês.",
+    "cr.dec.3s": "<b>Solução:</b> a extensão calcula todos os casos possíveis e mostra o intervalo, explicando o que falta, em vez de um número preciso mas errado.",
+    "cr.dec.4tag": "Privacidade",
+    "cr.dec.4t": "Preços automáticos, nada recolhido",
+    "cr.dec.4p": "<b>Problema:</b> os preços dos combustíveis mudam todas as semanas, mas o utilizador não devia ter de os atualizar à mão nem partilhar nada.",
+    "cr.dec.4s": "<b>Solução:</b> um service worker lê os preços públicos da DGEG no máximo de 12 em 12 horas, sem enviar nada sobre o utilizador nem o anúncio. As permissões limitam-se aos dois sites de que precisa.",
+
+    "cr.lim.1": "<b>Estimativas, não a conta final.</b> Muitos anúncios não têm o CO₂, e o consumo anunciado é o de homologação, normalmente mais baixo do que o real.",
+    "cr.lim.2": "<b>Ainda não coberto.</b> Comerciais mais pesados, motos, táxis e algumas isenções; o painel diz isso em vez de estimar.",
+    "cr.lim.3": "<b>Atualização anual.</b> As tabelas são as de 2026 e têm de ser atualizadas à mão quando as regras mudarem.",
+    "cr.lim.4": "<b>Próximas versões.</b> O painel junto ao preço, suporte para o OLX, custo total a 3 anos, alertas de quilómetros ou preços suspeitos e comparação lado a lado.",
+
+    "cr.learn.label": "07 · Aprendizagens",
+    "cr.learn.1": "Como funcionam as extensões de browser: content scripts, service workers, permissões e armazenamento no Manifest V3.",
+    "cr.learn.2": "Transformar regras legais em código e testes, confirmando cada valor em fontes oficiais.",
+    "cr.learn.3": "Trabalhar com dados que não controlo: páginas de outros e um serviço público do Estado.",
+    "cr.learn.4": "Levar um produto da ideia à loja: política de privacidade, ficha da loja e revisão.",
+    "cr.cta.text": "Grátis na Chrome Web Store. Também funciona no Edge e no Brave.",
 
     /* ---------- Estudo de caso: estágio ---------- */
     "gl.card.phoneLabel": "Ver o estudo de caso do estágio",

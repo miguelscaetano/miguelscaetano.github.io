@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="cr.meta.title">Custo Real · Case study · Miguel Caetano</title>
+  <meta name="description" data-i18n-attr="content:cr.meta.desc" content="Custo Real: a Chrome extension that shows the annual road tax (IUC) and monthly fuel cost on every car listing on Standvirtual. Architecture, technical decisions and limitations." />
+  <link rel="canonical" href="https://miguelscaetano.github.io/custo-real/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://miguelscaetano.github.io/custo-real/" />
+  <meta property="og:title" content="Custo Real · Case study" />
+  <meta property="og:description" content="A Chrome extension that shows the real cost of a used car (road tax and fuel) right on the listing. Published on the Chrome Web Store." />
+  <meta property="og:image" content="https://miguelscaetano.github.io/assets/og-custo-real.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Custo Real panel on a car listing" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <meta name="theme-color" content="#0A0A0A" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../case-study.css" />
+</head>
+<body>
+
+  <header class="nav" id="nav">
+    <a href="../" class="nav__logo">MC<span>.</span></a>
+    <div class="nav__right">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+      </div>
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" data-i18n-attr="aria-label:nav.menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+    <nav class="nav__links" id="navLinks">
+      <a href="../#about" data-i18n="nav.about">About</a>
+      <a href="../#projects" data-i18n="nav.projects">Projects</a>
+      <a href="../#stack" data-i18n="nav.stack">Stack</a>
+      <a href="../#contact" class="nav__cta" data-i18n="nav.contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="cs-hero">
+      <div class="hero__glow"></div>
+      <div class="container cs-hero__inner cs-hero__inner--wide">
+        <div class="cs-hero__text">
+          <a href="../#projects" class="back" data-i18n="cs.back">← Back to projects</a>
+          <p class="section__label" data-i18n="cr.label">Case study · Browser extension</p>
+          <h1 class="cs-title">Custo Real</h1>
+          <p class="cs-lead" data-i18n="cr.lead">
+            <strong>The real cost of a used car, right on the listing.</strong> A Chrome extension that shows,
+            on every car listing on Standvirtual, an estimate of the annual road tax (IUC) and the monthly
+            fuel cost, without opening a single calculator.
+          </p>
+          <div class="badges">
+            <span>Chrome Web Store</span><span>Manifest V3</span><span data-i18n="cr.badge.privacy">No data collected</span><span data-i18n="cr.badge.rules">2026 tax rules</span>
+          </div>
+          <div class="hero__actions">
+            <a href="https://chromewebstore.google.com/detail/custo-real/fdnkfcnohdgionjojhfmckkckonjcmnm" target="_blank" rel="noopener" class="btn btn--primary" data-i18n="cr.cta.store">Add to Chrome ↗</a>
+            <a href="https://github.com/miguelscaetano/custo-real" target="_blank" rel="noopener" class="btn btn--ghost" data-i18n="cs.cta.code">Code ↗</a>
+          </div>
+        </div>
+
+        <div class="cs-hero__visual">
+          <div class="browser browser--hero">
+            <div class="browser__bar" aria-hidden="true"><i></i><i></i><i></i><span class="browser__url">standvirtual.com/carros/anuncio/…</span></div>
+            <img src="../assets/custo-real/anuncio.webp" srcset="../assets/custo-real/anuncio-sm.webp 760w, ../assets/custo-real/anuncio.webp 1280w" sizes="(max-width: 960px) 92vw, 600px" width="1280" height="594" alt="Custo Real panel on a car listing" data-i18n-attr="alt:cr.alt.anuncio" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ QUICK FACTS ============ -->
+    <section class="container facts reveal">
+      <div><span class="facts__k" data-i18n="cs.facts.typeK">Type</span><span class="facts__v" data-i18n="cr.facts.typeV">Personal project, built and published in about a week</span></div>
+      <div><span class="facts__k" data-i18n="cs.facts.platK">Platforms</span><span class="facts__v">Chrome · Edge · Brave</span></div>
+      <div><span class="facts__k">Stack</span><span class="facts__v">JavaScript · Manifest V3 · Jest</span></div>
+      <div><span class="facts__k" data-i18n="cr.facts.privK">Privacy</span><span class="facts__v" data-i18n="cr.facts.privV">No data collected, no servers, no analytics</span></div>
+    </section>
+
+    <!-- ============ PROBLEM ============ -->
+    <section class="section">
+      <div class="container cs-split">
+        <div class="reveal">
+          <p class="section__label" data-i18n="cr.prob.label">01 · The problem</p>
+          <h2 class="section__title" data-i18n="cr.prob.title">The price on the listing is only part of the cost.</h2>
+        </div>
+        <div class="cs-prose reveal">
+          <p data-i18n="cr.prob.p1">When you buy a used car in Portugal you also pay the IUC road tax every year, plus fuel every month. Both depend on details buried in the listing: the date of first registration, engine size, CO₂ emissions, fuel type and consumption.</p>
+          <p data-i18n="cr.prob.p2">Comparing cars meant copying those values into separate calculators, one listing at a time. Custo Real does those calculations on the listing itself, as soon as the page opens.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SCREENS ============ -->
+    <section class="section section--tight">
+      <div class="container">
+        <p class="section__label reveal" data-i18n="cr.gal.label">02 · Screens</p>
+        <h2 class="section__title reveal" data-i18n="cr.gal.title">The extension in use</h2>
+        <div class="shots">
+          <figure class="reveal">
+            <div class="browser"><div class="browser__bar" aria-hidden="true"><i></i><i></i><i></i><span class="browser__url">standvirtual.com</span></div><img src="../assets/custo-real/s2000.webp" srcset="../assets/custo-real/s2000-sm.webp 760w, ../assets/custo-real/s2000.webp 1280w" sizes="(max-width: 960px) 92vw, 540px" width="1280" height="662" alt="Panel with the road tax and the fuel cost using the consumption from the listing" data-i18n-attr="alt:cr.alt.s2000" loading="lazy" /></div>
+            <figcaption data-i18n="cr.gal.s2000"><b>Full estimate</b>Road tax from the official table and fuel cost using the consumption stated in the listing</figcaption>
+          </figure>
+          <figure class="reveal">
+            <div class="browser"><div class="browser__bar" aria-hidden="true"><i></i><i></i><i></i><span class="browser__url">standvirtual.com</span></div><img src="../assets/custo-real/co2.webp" srcset="../assets/custo-real/co2-sm.webp 760w, ../assets/custo-real/co2.webp 1280w" sizes="(max-width: 960px) 92vw, 540px" width="1280" height="586" alt="Panel when the listing has no CO2 value, with a range and a field to type it" data-i18n-attr="alt:cr.alt.co2" loading="lazy" /></div>
+            <figcaption data-i18n="cr.gal.co2"><b>Missing data</b>No CO₂ in the listing: it shows the possible range and lets you type the value</figcaption>
+          </figure>
+          <figure class="reveal">
+            <div class="browser"><div class="browser__bar" aria-hidden="true"><i></i><i></i><i></i><span class="browser__url">standvirtual.com</span></div><img src="../assets/custo-real/opcoes.webp" srcset="../assets/custo-real/opcoes-sm.webp 760w, ../assets/custo-real/opcoes.webp 1280w" sizes="(max-width: 960px) 92vw, 540px" width="1280" height="684" alt="Options with live fuel prices from DGEG by district, and an electric car exempt from road tax" data-i18n-attr="alt:cr.alt.opcoes" loading="lazy" /></div>
+            <figcaption data-i18n="cr.gal.opcoes"><b>Options and electric cars</b>Live fuel prices by district; fully electric cars are exempt from IUC</figcaption>
+          </figure>
+          <figure class="reveal">
+            <div class="browser"><div class="browser__bar" aria-hidden="true"><i></i><i></i><i></i><span class="browser__url">standvirtual.com</span></div><img src="../assets/custo-real/comercial.webp" srcset="../assets/custo-real/comercial-sm.webp 760w, ../assets/custo-real/comercial.webp 1280w" sizes="(max-width: 960px) 92vw, 540px" width="1280" height="588" alt="Panel on a commercial van, where the road tax depends on gross weight" data-i18n-attr="alt:cr.alt.comercial" loading="lazy" /></div>
+            <figcaption data-i18n="cr.gal.comercial"><b>Commercial vehicles</b>Fuel cost is calculated; the road tax is not guessed, because it depends on gross weight</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURES ============ -->
+    <section class="section">
+      <div class="container">
+        <p class="section__label reveal" data-i18n="cr.feat.label">03 · Features</p>
+        <h2 class="section__title reveal" data-i18n="cs.feat.title">What it does</h2>
+        <div class="feat-grid">
+          <article class="feat reveal"><i class="bar bar--exotic"></i><h3 data-i18n="cr.feat.1t">Road tax with the breakdown</h3><p data-i18n="cr.feat.1p">Annual IUC estimate with each part of the calculation: engine size, CO₂, year coefficient and the diesel surcharge.</p></article>
+          <article class="feat reveal"><i class="bar bar--rare"></i><h3 data-i18n="cr.feat.2t">Monthly fuel cost</h3><p data-i18n="cr.feat.2p">Uses the consumption from the listing, or a default one, with the kilometres per month and the prices set in the options.</p></article>
+          <article class="feat reveal"><i class="bar bar--common"></i><h3 data-i18n="cr.feat.3t">Live fuel prices</h3><p data-i18n="cr.feat.3p">Petrol, diesel and LPG prices come from the government's DGEG portal, averaged by district and cached for 12 hours, with manual values as a fallback.</p></article>
+          <article class="feat reveal"><i class="bar bar--exotic"></i><h3 data-i18n="cr.feat.4t">Honest about missing data</h3><p data-i18n="cr.feat.4p">When a value is missing it says which one instead of inventing it. Without CO₂ it shows the possible range and lets you type the value.</p></article>
+          <article class="feat reveal"><i class="bar bar--rare"></i><h3 data-i18n="cr.feat.5t">Edge cases covered</h3><p data-i18n="cr.feat.5p">Electric cars (exempt), cars registered before 1981, imported cars, hybrids, LPG and commercial vehicles, each with its own message.</p></article>
+          <article class="feat reveal"><i class="bar bar--common"></i><h3 data-i18n="cr.feat.6t">Doesn't break the site</h3><p data-i18n="cr.feat.6p">The panel lives in a Shadow DOM, so it neither inherits Standvirtual's styles nor affects its layout, and it can be minimised.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="section" id="architecture">
+      <div class="container">
+        <p class="section__label reveal" data-i18n="cr.arch.label">04 · Architecture</p>
+        <h2 class="section__title reveal" data-i18n="cs.arch.title">How it's built</h2>
+
+        <p class="flow__title reveal" data-i18n="cr.flow.title">From the listing to the panel</p>
+        <div class="flow reveal">
+          <div class="flow__step"><span class="flow__n">1</span><b data-i18n="cr.flow.1t">Listing page</b><small data-i18n="cr.flow.1s">JSON embedded by the site (__NEXT_DATA__)</small></div>
+          <div class="flow__arrow" aria-hidden="true">→</div>
+          <div class="flow__step"><span class="flow__n">2</span><b data-i18n="cr.flow.2t">Site adapter</b><small data-i18n="cr.flow.2s">only knows Standvirtual</small></div>
+          <div class="flow__arrow" aria-hidden="true">→</div>
+          <div class="flow__step flow__step--accent"><span class="flow__n">3</span><b data-i18n="cr.flow.3t">Normaliser</b><small data-i18n="cr.flow.3s">"1 598 cm3", "5,4 l/100km", "03/2015" → one structure</small></div>
+          <div class="flow__arrow" aria-hidden="true">→</div>
+          <div class="flow__step"><span class="flow__n">4</span><b data-i18n="cr.flow.4t">Calculations</b><small data-i18n="cr.flow.4s">road tax and fuel, pure functions</small></div>
+          <div class="flow__arrow" aria-hidden="true">→</div>
+          <div class="flow__step"><span class="flow__n">5</span><b data-i18n="cr.flow.5t">Panel</b><small>Shadow DOM</small></div>
+        </div>
+
+        <div class="arch">
+          <div class="arch__tree reveal">
+            <p class="arch__label" data-i18n="cs.arch.tree">Project structure</p>
+<pre><code>manifest.json
+<span class="t-dir">src/</span>
+├── content.js        <span data-i18n="cr.tree.content">adapter → normaliser → calculations → panel</span>
+├── background.js     <span data-i18n="cr.tree.bg">service worker: DGEG prices + cache</span>
+├── <span class="t-dir">sites/</span>           standvirtual.js
+├── <span class="t-dir">core/</span>            normalizeCar, iuc, fuelCost,
+│                     iuc-tables-2026 <span data-i18n="cr.tree.data">(data only)</span>
+├── <span class="t-dir">data/</span>            <span data-i18n="cr.tree.dgeg">DGEG client, average by district</span>
+├── <span class="t-dir">ui/</span>              panel.js, panelText.js
+└── <span class="t-dir">options/</span>         <span data-i18n="cr.tree.options">options page</span>
+<span class="t-dir">tests/</span>              <span data-i18n="cr.tree.tests">Jest, fixtures from real listings</span></code></pre>
+          </div>
+          <div class="arch__notes reveal">
+            <div class="note"><h3 data-i18n="cr.arch.n1t">Three separate layers</h3><p data-i18n="cr.arch.n1p">The adapter is the only part that knows Standvirtual. Supporting another site means adding one file in <code>src/sites</code>; the normaliser and the calculations stay the same.</p></div>
+            <div class="note"><h3 data-i18n="cr.arch.n2t">Rules as data</h3><p data-i18n="cr.arch.n2p">The tax tables live in a data-only file. Updating them for a new year means copying one file and changing the values, without touching the logic.</p></div>
+            <div class="note"><h3 data-i18n="cr.arch.n3t">No build, no frameworks</h3><p data-i18n="cr.arch.n3p">Plain JavaScript with Manifest V3. The whole extension is small, easy to review and fast to load.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DECISIONS ============ -->
+    <section class="section">
+      <div class="container">
+        <p class="section__label reveal" data-i18n="cr.dec.label">05 · Technical decisions</p>
+        <h2 class="section__title reveal" data-i18n="cs.dec.title">Problems and how I solved them</h2>
+        <div class="challenges">
+          <article class="challenge reveal">
+            <span class="challenge__tag" data-i18n="cr.dec.1tag">Data</span>
+            <h3 data-i18n="cr.dec.1t">Reading the listing reliably</h3>
+            <p data-i18n="cr.dec.1p"><b>Problem:</b> reading the visible text breaks whenever the site changes its layout.</p>
+            <p data-i18n="cr.dec.1s"><b>Solution:</b> the adapter reads the JSON the site embeds in the page (<code>__NEXT_DATA__</code>). When the site switches listings without reloading, the extension requests the HTML of the open listing to read its data.</p>
+          </article>
+          <article class="challenge reveal">
+            <span class="challenge__tag" data-i18n="cr.dec.2tag">Rules</span>
+            <h3 data-i18n="cr.dec.2t">Getting the tax right</h3>
+            <p data-i18n="cr.dec.2p"><b>Problem:</b> the official IUC tables are published as images, and the rules depend on the registration date, fuel and emissions standard.</p>
+            <p data-i18n="cr.dec.2s"><b>Solution:</b> I transcribed the tables from the IUC Code, cross-checked them with consumer association examples, and turned those official examples into tests.</p>
+          </article>
+          <article class="challenge reveal">
+            <span class="challenge__tag" data-i18n="cr.dec.3tag">Uncertainty</span>
+            <h3 data-i18n="cr.dec.3t">Showing a range instead of guessing</h3>
+            <p data-i18n="cr.dec.3p"><b>Problem:</b> many listings leave out CO₂, don't say whether it was measured under NEDC or WLTP, or give only "2007" without the month.</p>
+            <p data-i18n="cr.dec.3s"><b>Solution:</b> the extension calculates every possible case and shows the range, explaining what is missing, instead of showing a precise but wrong number.</p>
+          </article>
+          <article class="challenge reveal">
+            <span class="challenge__tag" data-i18n="cr.dec.4tag">Privacy</span>
+            <h3 data-i18n="cr.dec.4t">Automatic prices, nothing collected</h3>
+            <p data-i18n="cr.dec.4p"><b>Problem:</b> fuel prices change every week, but users shouldn't have to update them by hand or share anything.</p>
+            <p data-i18n="cr.dec.4s"><b>Solution:</b> a service worker reads the public DGEG prices at most every 12 hours, without sending anything about the user or the listing. Permissions are limited to the two sites it needs.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LIMITATIONS ============ -->
+    <section class="section">
+      <div class="container cs-split">
+        <div class="reveal">
+          <p class="section__label" data-i18n="cs.lim.label">06 · Technical honesty</p>
+          <h2 class="section__title" data-i18n="cs.lim.title">Limitations and next steps</h2>
+        </div>
+        <ul class="limits reveal">
+          <li data-i18n="cr.lim.1"><b>Estimates, not the final bill.</b> Listings often lack CO₂, and the advertised consumption is the official figure, usually lower than real-world use.</li>
+          <li data-i18n="cr.lim.2"><b>Not covered yet.</b> Heavier commercial vehicles, motorbikes, taxis and some exemptions; the panel says so instead of estimating.</li>
+          <li data-i18n="cr.lim.3"><b>Yearly update.</b> The tax tables are the 2026 ones and have to be updated by hand when the rules change.</li>
+          <li data-i18n="cr.lim.4"><b>Next versions.</b> The panel next to the price, OLX support, total cost over 3 years, alerts for suspicious mileage or prices, and side-by-side comparison.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ LEARNED ============ -->
+    <section class="section">
+      <div class="container cs-split">
+        <div class="reveal">
+          <p class="section__label" data-i18n="cr.learn.label">07 · Takeaways</p>
+          <h2 class="section__title" data-i18n="cs.learn.title">What I learned</h2>
+        </div>
+        <!-- ✏️ Rewrite in your own words if you like (EN here, PT in i18n.js, keys cr.learn.*) -->
+        <ul class="learned reveal">
+          <li data-i18n="cr.learn.1">How browser extensions work: content scripts, service workers, permissions and storage in Manifest V3.</li>
+          <li data-i18n="cr.learn.2">Turning legal rules into code and tests, and checking every value against official sources.</li>
+          <li data-i18n="cr.learn.3">Working with data I don't control: other people's pages and a public government service.</li>
+          <li data-i18n="cr.learn.4">Taking a product from idea to store: privacy policy, store listing and review.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="cs-cta reveal">
+          <h2 data-i18n="cs.cta.title">Try it</h2>
+          <p data-i18n="cr.cta.text">Free on the Chrome Web Store. Also works on Edge and Brave.</p>
+          <div class="hero__actions cs-cta__actions">
+            <a href="https://chromewebstore.google.com/detail/custo-real/fdnkfcnohdgionjojhfmckkckonjcmnm" target="_blank" rel="noopener" class="btn btn--primary" data-i18n="cr.cta.store">Add to Chrome ↗</a>
+            <a href="https://github.com/miguelscaetano/custo-real" target="_blank" rel="noopener" class="btn btn--ghost" data-i18n="cs.cta.github">Code on GitHub ↗</a>
+            <a href="../#contact" class="btn btn--ghost" data-i18n="cs.cta.talk">Get in touch</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Miguel Caetano · <a href="../" data-i18n="cs.footer.home">Back to home</a></p>
+  </footer>
+
+  <script src="../i18n.js"></script>
+  <script src="../script.js"></script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 My personal portfolio: **[miguelscaetano.github.io](https://miguelscaetano.github.io)**
 
 I'm Miguel Caetano, a software developer building websites, desktop apps and mobile apps.
-This site presents who I am and what I build, with case studies of [ParkLog](https://miguelscaetano.github.io/parklog/), my main personal project, and the [mobile app I worked on during my internship](https://miguelscaetano.github.io/internship/).
+This site presents who I am and what I build, with case studies of [ParkLog](https://miguelscaetano.github.io/parklog/), my main personal project, [Custo Real](https://miguelscaetano.github.io/custo-real/), a Chrome extension published on the Chrome Web Store, and the [mobile app I worked on during my internship](https://miguelscaetano.github.io/internship/).
 
 [![Portfolio preview](assets/og-home.jpg)](https://miguelscaetano.github.io)
 
@@ -22,6 +22,7 @@ This site presents who I am and what I build, with case studies of [ParkLog](htt
 index.html            home page
 parklog/              ParkLog case study → /parklog/
 internship/           internship case study → /internship/
+custo-real/           Custo Real case study (Chrome extension) → /custo-real/
 404.html              page shown for broken links
 style.css             shared styles
 case-study.css        styles shared by the case study pages

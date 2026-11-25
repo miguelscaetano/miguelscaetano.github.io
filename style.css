@@ -1,3 +1,8 @@
+/* =========================================================
+   Portfólio · Miguel Caetano
+   Design system "garagem exótica" (o mesmo do ParkLog)
+   ========================================================= */
+
 :root {
   --bg: #0A0A0A;
   --card: #18181B;
@@ -6,8 +11,8 @@
   --muted: #A1A1AA;
 
   --exotic: #8B5CF6;
-  --exotic-strong: #7C3AED;
-  --exotic-text: #A78BFA;
+  --exotic-strong: #7C3AED; /* fundos com texto branco (contraste 5.7:1) */
+  --exotic-text: #A78BFA;   /* texto pequeno em roxo sobre fundo escuro */
   --rare: #EF4444;
   --common: #3B82F6;
 
@@ -40,30 +45,20 @@ strong, b { color: var(--text); font-weight: 600; }
   position: fixed; inset: 0 0 auto 0; z-index: 50;
   display: flex; align-items: center; justify-content: space-between;
   padding: 18px max(24px, calc((100% - 1120px) / 2));
-    transition: border-color .3s;
-      border-bottom: 1px solid transparent;
-    }
-    
-    .nav::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background: rgba(10, 10, 10, .72);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      opacity: 0;
-      transition: opacity .3s;
-    }
-    
-    .nav.scrolled::before {
-      opacity: 1;
-    }
-    
-    .nav.scrolled {
-      border-bottom-color: rgba(39, 39, 42, .7);
-    }
-
+  transition: border-color .3s;
+  border-bottom: 1px solid transparent;
+}
+/* O vidro fica numa camada por trás da barra (::before) e não na própria barra:
+   um backdrop-filter na barra prenderia o menu mobile (position: fixed) à altura dela */
+.nav::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: rgba(10, 10, 10, .72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  opacity: 0; transition: opacity .3s;
+}
+.nav.scrolled::before { opacity: 1; }
+.nav.scrolled { border-bottom-color: rgba(39, 39, 42, .7); }
 .nav__logo { font-family: var(--font-display); font-size: 24px; font-weight: 700; letter-spacing: 1px; }
 .nav__logo span { color: var(--exotic); }
 .nav__links { display: flex; align-items: center; gap: 32px; font-size: 15px; }
@@ -285,9 +280,7 @@ a.phone { display: block; }
     opacity: 0; pointer-events: none; transition: opacity .3s;
   }
   .nav.open .nav__links { opacity: 1; pointer-events: auto; }
-                    .nav.open {
-                      border-bottom-color: transparent;
-                    }
+  .nav.open { border-bottom-color: transparent; }
   .nav.open .nav__toggle span:first-child { transform: translateY(3.5px) rotate(45deg); }
   .nav.open .nav__toggle span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
   .stack { grid-template-columns: 1fr; }
@@ -333,3 +326,36 @@ a.phone { display: block; }
 @keyframes caret { 50% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .code-card__caret { animation: none; } }
 @media (max-width: 480px) { .code-card__body { font-size: 12px; padding: 18px; } }
+
+/* ---------- Moldura de browser (projetos web / extensões) ---------- */
+.browser {
+  width: 100%; max-width: 520px; border-radius: 14px; overflow: hidden;
+  background: #111113; border: 1px solid #3F3F46;
+  box-shadow: 0 40px 80px -24px rgba(0, 0, 0, .85);
+  transition: transform .5s;
+}
+a.browser { display: block; }
+.project:hover .browser { transform: translateY(-6px); }
+.browser__bar {
+  display: flex; align-items: center; gap: 6px; padding: 9px 12px;
+  background: #18181B; border-bottom: 1px solid #27272A;
+}
+.browser__bar i { width: 9px; height: 9px; border-radius: 50%; background: #3F3F46; flex: none; }
+.browser__bar i:nth-child(1) { background: #EF4444; }
+.browser__bar i:nth-child(2) { background: #EAB308; }
+.browser__bar i:nth-child(3) { background: #22C55E; }
+.browser__url {
+  margin-left: 8px; flex: 1; min-width: 0; padding: 3px 10px; border-radius: 6px;
+  background: #0A0A0A; color: #A1A1AA; font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.browser img { display: block; width: 100%; height: auto; }
+/* Cartão de extensão: browser com o painel em destaque à frente */
+.browser-stack { position: relative; display: block; width: 100%; max-width: 520px; padding-bottom: 48px; }
+.browser-stack .browser { opacity: .85; }
+.panel-float {
+  position: absolute; right: -12px; bottom: 0; width: 46%; height: auto;
+  border-radius: 12px; box-shadow: 0 30px 60px -12px rgba(0, 0, 0, .9), 0 0 0 1px rgba(255, 255, 255, .08);
+  transform: rotate(2deg); transition: transform .5s;
+}
+.project:hover .panel-float { transform: rotate(0) translateY(-6px); }
+@media (max-width: 720px) { .panel-float { right: 0; width: 52%; } }
